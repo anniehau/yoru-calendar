@@ -1,0 +1,12 @@
+{
+  "name": "yorudict-back-end",
+  "version": "1.0.0",
+  "description": "A simple back-end with MongoDB and Express for the App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
