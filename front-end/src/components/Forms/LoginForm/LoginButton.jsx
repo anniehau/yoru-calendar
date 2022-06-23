@@ -1,11 +1,14 @@
 import React from 'react';
-import { func } from 'prop-types';
+import { func, bool } from 'prop-types';
 
 function LoginButton(props) {
-  const { onClick } = props;
+  const { onClick, disabled } = props;
 
   return (
-    <button onClick={ onClick }>
+    <button
+      onClick={ onClick }
+      disabled={ disabled }
+    >
       Log In
     </button>
   )
@@ -13,6 +16,7 @@ function LoginButton(props) {
 
 LoginButton.propTypes = {
   onClick: func.isRequired,
+  disabled: bool.isRequired,
 }
 
 export default LoginButton;
