@@ -12,7 +12,8 @@ function LoginForm() {
   const trueIfValuesAreInvalid = () => {
     const usernameIsInvalid = form.username.length < 3;
     const passwordIsInvalid = form.password.length < 6;
-    return usernameIsInvalid || passwordIsInvalid;
+    if (usernameIsInvalid || passwordIsInvalid) return true;
+    return false;
   }
   
   // Sets form values in state. Requires field to be "username" or "password"
