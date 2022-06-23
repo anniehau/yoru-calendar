@@ -8,12 +8,15 @@ const INITIAL_FORM = { username: '', password: '' };
 function LoginForm() {
   const [form, setForm] = useState(INITIAL_FORM);
 
+  // Disables LoginButton if form values are invalid
   const trueIfValuesAreInvalid = () => {
     const usernameIsInvalid = form.username.length < 3;
     const passwordIsInvalid = form.password.length < 6;
     return usernameIsInvalid || passwordIsInvalid;
   }
   
+  // Sets form values in state. Requires field to be "username" or "password"
+  // to change the respsective fields.
   const setFormValue = (event, field) => {
     const { value } = event.target;
     setForm((s) => ({ ...s, [field]: value }));
