@@ -1,7 +1,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-function PasswordInput(props) {
+function LoginButton(props) {
   const { onClick } = props;
 
   return (
@@ -11,8 +11,8 @@ function PasswordInput(props) {
   )
 }
 
-PasswordInput.propTypes = {
+LoginButton.propTypes = {
   onClick: func.isRequired,
 }
 
-export default PasswordInput;
+export default LoginButton;
