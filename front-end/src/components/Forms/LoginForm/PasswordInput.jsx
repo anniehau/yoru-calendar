@@ -8,6 +8,7 @@ function PasswordInput(props) {
     <input
       type="password"
       value={ password }
+      placeholder="******"
       onChange={ (e) => onChange(e, 'password') }
     />
   )

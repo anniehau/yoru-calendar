@@ -8,6 +8,7 @@ function UsernameInput(props) {
     <input
       type="text"
       value={ username }
+      placeholder="Username"
       onChange={ (e) => onChange(e, 'username') }
     />
   )
