@@ -10,10 +10,13 @@ function LoginForm() {
   
   const setFormValue = (event, field) => {
     const { value } = event.target;
-    setForm((s) => ({ ...s, [field]: value }))
+    setForm((s) => ({ ...s, [field]: value }));
   };
 
-  const submitLogin = () => console.log('Login!');
+  const submitLogin = (event) => {
+    event.preventDefault();
+    console.log('Login!');
+  };
 
   return (
     <form>
