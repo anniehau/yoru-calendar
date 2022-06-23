@@ -1,4 +1,4 @@
-# :crescent_moon: 夜 Yoru Calendar
+# :crescent_moon: Yoru Calendar
 
 ## :question: What is it about?
 Yoru Calendar is a Single-page Application that lets you view, add, update and remove tasks on days of the month. It also allows you to view tasks by week and month if preferred.
