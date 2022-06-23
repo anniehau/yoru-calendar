@@ -1,7 +1,7 @@
 # :crescent_moon: Yoru Calendar
 
 ## :question: What is it about?
-Yoru Calendar is a Single-page Application that lets you view, add, update and remove tasks on days of the month. It also allows you to view tasks by week and month if preferred.
+Yoru Calendar is a simple calendar app that lets you view, add, update and remove tasks on days of the month. It also allows you to view tasks by week and month if preferred.
 
 ## :computer: Technologies used
 This project utilizes Javascript & Typescript. It is composed with Docker and deployed with Heroku.

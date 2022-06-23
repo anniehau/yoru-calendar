@@ -1,0 +1,20 @@
+{
+  "name": "yoru-calendar",
+  "version": "1.0.0",
+  "description": "Yoru Calendar is a simple calendar app that lets you view, add, update and remove tasks on days of the month.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anniehau/yoru-calendar.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anniehau/yoru-calendar/issues"
+  },
+  "homepage": "https://github.com/anniehau/yoru-calendar#readme"
+}
