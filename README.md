@@ -7,7 +7,7 @@ Yoru Calendar is a simple calendar app that lets you view, add, update and remov
 This project utilizes Javascript & Typescript. It is composed with Docker and deployed with Heroku.
 
 :page_with_curl: **Front-end:** React <br>
-:file_cabinet: **Back-end:** Express and MongoDB
+:file_cabinet: **Back-end:** Express and Sequelize
 
 ## :gear: How to install
 1. Clone the repository
