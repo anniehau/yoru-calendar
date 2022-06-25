@@ -3,7 +3,7 @@ module.exports = {
 		await queryInterface.bulkInsert('users', [{
 			name: 'Admin',
 			email: 'admin@email.com',
-			password: '@75C+mNSZB',
+			password: 'c5e6e0c779dfb160b799b986492c71fa',
 		}]);
 	},
 	

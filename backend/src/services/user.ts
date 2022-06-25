@@ -1,8 +1,8 @@
+import { Md5 } from 'ts-md5';
 import UserModel from '../models/user';
 import { RegisterBody, LoginBody } from '../interfaces/user';
 import format from '../helpers/format';
 import token from '../helpers/jwt';
-import md5 from 'md5';
 
 export default class UserService {
 	constructor(private model = new UserModel()) {}
@@ -17,8 +17,8 @@ export default class UserService {
 		const user = await this.model.getOne(login.email);
 		if (!user) return null;
 
-
-		if (login.password !== user.password) return null;
+		const passwordIsValid = Md5.hashStr(login.password) === user.password;
+		if (!passwordIsValid) return null;
 
 		const formatted = format.user.body(user);
 		return { ...formatted, token: token.generate(formatted) };
@@ -28,7 +28,8 @@ export default class UserService {
 		const userExists = await this.model.getOne(user.email);
 		if (userExists) return null;
 
-		const result = await this.model.register(user);
+		const newUser = { ...user, password: Md5.hashStr(user.password) };
+		const result = await this.model.register(newUser);
 
 		const formatted = format.user.body(result);
 		return { ...formatted, token: token.generate(formatted) };
