@@ -4,6 +4,7 @@
   "description": "Yoru Calendar is a simple calendar app that lets you view, add, update and remove tasks on days of the month.",
   "main": "index.js",
   "scripts": {
+		"start": "npm run compose:down && npm run compose:up",
     "install": "cd ./frontend && npm install && cd ../backend && npm install",
 		"compose:up": "docker-compose -p yoru_calendar up -d --build",
 		"compose:down": "docker-compose -p yoru_calendar down --remove-orphans"
