@@ -13,7 +13,18 @@ export default class UserController {
 			return res.status(200).json(result);
 		} catch (error) {
 			console.log(error);
-			res.status(500).json({ error });
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
+		}
+	};
+
+	public login = async (req: Request, res: Response) => {
+		try {
+			const result = await this.service.login(req.body);
+			if (!result) return res.status(401).json({ error: 'Your login data is incorrect!' });
+			return res.status(200).json(result);
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
 		}
 	};
 

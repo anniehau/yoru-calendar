@@ -1,6 +1,7 @@
 import UserModel from '../models/user';
-import { UserBody, LoginBody } from '../interfaces/user';
+import { RegisterBody, LoginBody } from '../interfaces/user';
 import format from '../helpers/format';
+import token from '../helpers/jwt';
 
 export default class UserService {
 	constructor(private model = new UserModel()) {}
@@ -12,12 +13,16 @@ export default class UserService {
 	};
 
 	public login = async (login: LoginBody) => {
-		const userExists = await this.model.getOne(login.email);
-		if (userExists) return null;
-		return login;
+		const user = await this.model.getOne(login.email);
+
+		if (!user) return null;
+		if (login.password !== user.password) return null;
+
+		const formatted = format.user.body(user);
+		return token.generate(formatted);
 	};
 
-	public register = async (user: UserBody) => {
+	public register = async (user: RegisterBody) => {
 		const userExists = await this.model.getOne(user.email);
 		if (userExists) return null;
 

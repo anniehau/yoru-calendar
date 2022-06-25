@@ -7,6 +7,6 @@ export type IUser = {
 }
 
 // Used types
-export type UserBody = { name: string, email: string, password: string };
+export type RegisterBody = { name: string, email: string, password: string };
 export type LoginBody = { email: string, password: string }
 export type DbResult = IUser | null;
