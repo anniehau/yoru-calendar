@@ -14,7 +14,6 @@ const includes = {
 	body: async ({ url, payload }) => {
 		const result = await fetch(`http://localhost:3001${route[url]}`, payload)
 			.then((data) => data.json());
-		console.log(result);
 	
 		if (result.error) return { success: false, data: result };
 	

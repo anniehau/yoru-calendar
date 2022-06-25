@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import { func } from 'prop-types';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import LoginButton from './LoginButton';
-import create from '../../../helpers/create';
 
 const INITIAL_FORM = { email: '', password: '' };
 
-function LoginForm() {
+function LoginForm(props) {
+	const { submitLogin } = props;
+
+	// State
   const [form, setForm] = useState(INITIAL_FORM);
 
   // Disables LoginButton if form values are invalid
@@ -24,13 +27,6 @@ function LoginForm() {
     setForm((s) => ({ ...s, [field]: value }));
   };
 
-  const submitLogin = async (event) => {
-    event.preventDefault();
-    const payload = create.payload.to.login(form);
-		const result = await create.fetch.includes.body({ url: 'login', payload });
-		if (!result.success) return null;
-  };
-
   return (
     <form>
       <EmailInput email={ form.email } onChange={ setFormValue } />
@@ -38,6 +34,10 @@ function LoginForm() {
       <LoginButton onClick={ submitLogin } disabled={ trueIfValuesAreInvalid() } />
     </form>
   )
-}
+};
+
+LoginForm.propTypes = {
+	submitLogin: func.isRequired,
+};
 
 export default LoginForm;
