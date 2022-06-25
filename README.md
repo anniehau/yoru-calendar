@@ -11,6 +11,7 @@ This project utilizes Javascript & Typescript. It is composed with Docker and de
 
 ## :gear: How to install
 1. Clone the repository
-2. Navigate to "./front-end" in your terminal and type "npm install"
-3. Navigate to "./back-end" in your terminal and type "npm install"
-4. At the root folder "./" type "npm start" to initialize the app through docker containers
+2. Navigate to the root folder of the project and type "npm run install"
+3. Type "npm run compose:up" to initialize the app through docker containers
+4. You can now access the website through **localhost:3000** on the browser!
+5. If you want to stop the containers, you can type "npm run compose:down"
