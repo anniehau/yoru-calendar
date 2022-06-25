@@ -8,8 +8,9 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+		"strictPropertyInitialization": false,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
   "include": ["src/**/*", "interfaces.ts"],
 }
