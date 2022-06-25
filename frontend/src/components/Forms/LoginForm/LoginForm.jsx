@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import UsernameInput from './UsernameInput';
+import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import LoginButton from './LoginButton';
+import create from '../../../helpers/create';
 
-const INITIAL_FORM = { username: '', password: '' };
+const INITIAL_FORM = { email: '', password: '' };
 
 function LoginForm() {
   const [form, setForm] = useState(INITIAL_FORM);
 
   // Disables LoginButton if form values are invalid
   const trueIfValuesAreInvalid = () => {
-    const usernameIsInvalid = form.username.length < 3;
+    const emailIsInvalid = form.email.length < 3;
     const passwordIsInvalid = form.password.length < 6;
-    if (usernameIsInvalid || passwordIsInvalid) return true;
+    if (emailIsInvalid || passwordIsInvalid) return true;
     return false;
   }
   
@@ -25,12 +26,14 @@ function LoginForm() {
 
   const submitLogin = async (event) => {
     event.preventDefault();
-    console.log('Login!');
+    const payload = create.payload.to.login(form);
+		const result = await create.fetch.includes.body({ url: 'login', payload });
+		if (!result.success) return null;
   };
 
   return (
     <form>
-      <UsernameInput username={ form.username } onChange={ setFormValue } />
+      <EmailInput email={ form.email } onChange={ setFormValue } />
       <PasswordInput password={ form.password } onChange={ setFormValue } />
       <LoginButton onClick={ submitLogin } disabled={ trueIfValuesAreInvalid() } />
     </form>

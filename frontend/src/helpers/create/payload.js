@@ -4,7 +4,7 @@ const accept = {
   'Content-Type': 'application/json',
 };
 
-const create = {
+const to = {
 	login: (body) => ({
 		method: 'POST',
 		headers: accept,
@@ -12,4 +12,6 @@ const create = {
 	})
 }
 
-module.exports = { create }
+const functions = { to };
+
+export default functions;
