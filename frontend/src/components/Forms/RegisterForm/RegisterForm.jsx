@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import create from '../../../helpers/create';
+import { create, format, storage } from '../../../helpers';
 import NameInput from './NameInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
@@ -38,6 +38,8 @@ function RegisterForm() {
     const payload = create.payload.to.register(form);
 		const result = await create.fetch.includes.body({ url: 'register', payload });
 		if (!result.success) return setError(result.data.error)
+		const user = format.user.obj(result.data)
+		storage.user.set(user);
 		navigate('/calendar');
   };
 
