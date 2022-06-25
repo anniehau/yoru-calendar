@@ -1,5 +1,5 @@
 import User from '../database/models/User';
-import { IUser, DbResult, UserBody } from '../interfaces/user';
+import { IUser, DbResult, RegisterBody } from '../interfaces/user';
 
 export default class UserModel {
 	public async getById(id: number): Promise<DbResult> {
@@ -12,7 +12,7 @@ export default class UserModel {
 		return result;
 	}
 
-	public async register(user: UserBody): Promise<IUser> {
+	public async register(user: RegisterBody): Promise<IUser> {
 		const result = await User.create(user);
 		return result;
 	}
