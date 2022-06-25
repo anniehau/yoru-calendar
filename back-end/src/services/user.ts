@@ -2,17 +2,23 @@ import UserModel from '../models/user';
 import { UserBody } from '../interfaces/user';
 
 export default class UserService {
-	constructor(protected model = new UserModel()) {}
+	constructor(private model = new UserModel()) {}
 
-	public async getOne(id: number) {
-		const result = await this.model.getOne(id);
+	public getById = async (id: number) => {
+		const result = await this.model.getById(id);
 		if (!result) return null;
 		return result;
-	}
+	};
 
-	public async create(user: UserBody) {
-		const result = await this.model.create(user);
+	public getOne = async (email: string) => {
+		const result = await this.model.getOne(email);
 		if (!result) return null;
 		return result;
-	}
+	};
+
+	public register = async (user: UserBody) => {
+		const result = await this.model.register(user);
+		if (!result) return null;
+		return result;
+	};
 }

@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.ts",
-    "build": "tsc && cp ./src/.env ./dist/src/.env",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "build": "npm run build:remove && npx tsc",
+		"build:remove": "rm -rf ./build",
+    "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run build:remove"
   },
   "keywords": [],
   "author": "",

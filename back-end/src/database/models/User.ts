@@ -21,6 +21,9 @@ User.init({
 	sequelize: db,
 	tableName: 'users',
 	timestamps: false,
+	scopes: {
+		noPassword: { attributes: { exclude: ['password'] } },
+	}
 });
 
 export default User;

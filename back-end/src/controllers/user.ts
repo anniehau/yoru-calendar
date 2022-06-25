@@ -1,27 +1,30 @@
-import { Request, Response } from 'express';
 import UserService from '../services/user';
+import { Request, Response } from 'express';
 
 export default class UserController {
-	constructor(protected service = new UserService()) {}
+	constructor(private service = new UserService()) { }
 
-	public async getOne(req: Request, res: Response) {
-		const { id } = req.body;
+	public getById = async (req: Request, res: Response) => {
+		const { id } = req.params;
 		
 		try {
-			const result = await this.service.getOne(id);
+			const result = await this.service.getById(Number(id));
 			if (!result) return res.status(404).json({ error: 'User not found!' });
 			return res.status(200).json(result);
 		} catch (error) {
+			console.log(error);
 			res.status(500).json({ error });
 		}
-	}
+	};
 
-	public async create(req: Request, res: Response) {
+	public register = async (req: Request, res: Response) => {
 		try {
-			const result = await this.service.create(req.body);
+			const result = await this.service.register(req.body);
+			if (!result) return res.status(400).json({ error: 'User already exists!' });
 			return res.status(201).json(result);
 		} catch (error) {
-			res.status(500).json({ error });
+			console.log(error);
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
 		}
-	}
+	};
 }
