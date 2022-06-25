@@ -19,7 +19,7 @@ export default class UserService {
 		if (login.password !== user.password) return null;
 
 		const formatted = format.user.body(user);
-		return { formatted, token: token.generate(formatted) };
+		return { ...formatted, token: token.generate(formatted) };
 	};
 
 	public register = async (user: RegisterBody) => {
@@ -29,6 +29,6 @@ export default class UserService {
 		const result = await this.model.register(user);
 
 		const formatted = format.user.body(result);
-		return { formatted, token: token.generate(formatted) };
+		return { ...formatted, token: token.generate(formatted) };
 	};
 }
