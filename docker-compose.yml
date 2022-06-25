@@ -18,6 +18,13 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+      - DB_USER=root
+      - DB_PASS=123456
+      - DB_NAME=yoru_calendar
+      - DB_HOST=db
+      - DB_PORT=3306
+      - PORT=3001
     healthcheck:
       test: ["CMD", "lsof", "-t", "-i:3001"]
       timeout: 10s

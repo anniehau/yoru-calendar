@@ -4,7 +4,8 @@
   "description": "A simple back-end with Sequelize and Express",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.ts",
+    "start": "nodemon ./src/index.ts",
+		"start:docker": "npm run db:reset && nodemon ./src/index.ts",
     "build": "npm run build:remove && npx tsc",
     "build:remove": "rm -rf ./build",
     "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run build:remove"
