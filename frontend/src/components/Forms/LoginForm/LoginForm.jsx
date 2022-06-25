@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import create from '../../../helpers/create';
+import { create, format, storage } from '../../../helpers';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import LoginButton from './LoginButton';
@@ -8,7 +8,6 @@ import ToRegisterButton from './ToRegisterButton';
 import ErrorText from './ErrorText';
 
 const INITIAL_FORM = { email: '', password: '' };
-
 
 function LoginForm() {
 	const navigate = useNavigate();
@@ -37,6 +36,8 @@ function LoginForm() {
     const payload = create.payload.to.login(form);
 		const result = await create.fetch.includes.body({ url: 'login', payload });
 		if (!result.success) return setError(result.data.error);
+		const user = format.user.obj(result.data)
+		storage.user.set(user);
 		navigate('/calendar');
   };
 

@@ -17,7 +17,7 @@ const includes = {
 	
 		if (result.error) return { success: false, data: result };
 	
-		return { success: true, result };
+		return { success: true, data: result };
 	},
 	
 	params: async ({ url, payload, params }) => {
@@ -26,7 +26,7 @@ const includes = {
 	
 		if (result.error) return { success: false, data: result };
 	
-		return { success: true, result };
+		return { success: true, data: result };
 	},
 };
 
