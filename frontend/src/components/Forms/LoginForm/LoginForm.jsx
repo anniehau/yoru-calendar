@@ -23,7 +23,7 @@ function LoginForm() {
     setForm((s) => ({ ...s, [field]: value }));
   };
 
-  const submitLogin = (event) => {
+  const submitLogin = async (event) => {
     event.preventDefault();
     console.log('Login!');
   };
