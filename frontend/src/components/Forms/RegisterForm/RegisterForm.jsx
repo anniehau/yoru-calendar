@@ -1,27 +1,28 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import create from '../../../helpers/create';
+import NameInput from './NameInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
-import LoginButton from './LoginButton';
-import ToRegisterButton from './ToRegisterButton';
+import RegisterButton from './RegisterButton';
+import ToLoginButton from './ToLoginButton';
 import ErrorText from './ErrorText';
 
-const INITIAL_FORM = { email: '', password: '' };
+const INITIAL_FORM = { name: '', email: '', password: '' };
 
-
-function LoginForm() {
+function RegisterForm() {
 	const navigate = useNavigate();
 
 	// State
   const [form, setForm] = useState(INITIAL_FORM);
 	const [error, setError] = useState('');
 
-  // Disables LoginButton if form values are invalid
+  // Disables RegisterButton if form values are invalid
   const trueIfValuesAreInvalid = () => {
+		const nameIsInvalid = form.name.length < 3;
     const emailIsInvalid = form.email.length < 3;
     const passwordIsInvalid = form.password.length < 6;
-    if (emailIsInvalid || passwordIsInvalid) return true;
+    if (nameIsInvalid || emailIsInvalid || passwordIsInvalid) return true;
     return false;
   }
   
@@ -32,23 +33,24 @@ function LoginForm() {
     setForm((s) => ({ ...s, [field]: value }));
   };
 
-	// Submits Login and shows error if it's returned
-  const submitLogin = async () => {
-    const payload = create.payload.to.login(form);
-		const result = await create.fetch.includes.body({ url: 'login', payload });
-		if (!result.success) return setError(result.data.error);
+	// Submits fetch and shows error if it's returned
+  const submitRegister = async () => {
+    const payload = create.payload.to.register(form);
+		const result = await create.fetch.includes.body({ url: 'register', payload });
+		if (!result.success) return setError(result.data.error)
 		navigate('/calendar');
   };
 
   return (
     <form>
+			<NameInput name={ form.name } onChange={ setFormValue } />
       <EmailInput email={ form.email } onChange={ setFormValue } />
       <PasswordInput password={ form.password } onChange={ setFormValue } />
-      <LoginButton onClick={ submitLogin } disabled={ trueIfValuesAreInvalid() } />
-			<ToRegisterButton />
+      <RegisterButton onClick={ submitRegister } disabled={ trueIfValuesAreInvalid() } />
+			<ToLoginButton />
 			<ErrorText error={ error } />
     </form>
   )
 };
 
-export default LoginForm;
+export default RegisterForm;

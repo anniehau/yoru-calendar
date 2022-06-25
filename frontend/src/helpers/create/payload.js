@@ -4,12 +4,17 @@ const accept = {
   'Content-Type': 'application/json',
 };
 
-const to = {
-	login: (body) => ({
+const generic = {
+	post: (body) => ({
 		method: 'POST',
 		headers: accept,
 		body: JSON.stringify(body),
 	})
+}
+
+const to = {
+	login: (body) => generic.post(body),
+	register: (body) => generic.post(body),
 }
 
 const functions = { to };
