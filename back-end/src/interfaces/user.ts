@@ -1,10 +1,12 @@
-// Basic type
-type User = {
+// Full type
+export type IUser = {
+	id?: number,
 	name: string,
 	email: string,
+	password?: string,
 }
 
 // Used types
-export type UserBody = User & { password: string };
-export type UserFromDb = User & { id: number };
-export type DbResult = UserFromDb | null;
+export type UserBody = { name: string, email: string, password: string };
+export type LoginBody = { email: string, password: string }
+export type DbResult = IUser | null;
