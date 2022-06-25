@@ -6,8 +6,9 @@ function LoginButton(props) {
 
   return (
     <button
-      onClick={ onClick }
+			type="button"
       disabled={ disabled }
+      onClick={ onClick }
     >
       Log In
     </button>

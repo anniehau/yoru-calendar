@@ -1,12 +1,12 @@
 import React from 'react';
-import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import LoginMain from '../../components/Main/LoginMain';
 import Title from '../../components/Text/Title';
 
 function Login() {
   return (
     <>
       <Title />
-      <LoginForm />
+      <LoginMain />
     </>
   )
 }

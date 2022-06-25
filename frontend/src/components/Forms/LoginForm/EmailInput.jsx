@@ -9,6 +9,7 @@ function EmailInput(props) {
       type="email"
       value={ email }
       placeholder="Email"
+			autoComplete='on'
       onChange={ (e) => onChange(e, 'email') }
     />
   )

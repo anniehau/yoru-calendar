@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { func } from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import create from '../../../helpers/create';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import LoginButton from './LoginButton';
+import ErrorText from './ErrorText';
 
-const INITIAL_FORM = { email: '', password: '' };
+const INITIAL_FORM = { email: '', password: '', error: '' };
 
-function LoginForm(props) {
-	const { submitLogin } = props;
+function LoginForm() {
+	const navigate = useNavigate();
 
 	// State
   const [form, setForm] = useState(INITIAL_FORM);
@@ -27,17 +29,22 @@ function LoginForm(props) {
     setForm((s) => ({ ...s, [field]: value }));
   };
 
+	// Submits Login and 
+  const submitLogin = async () => {
+    const payload = create.payload.to.login(form);
+		const result = await create.fetch.includes.body({ url: 'login', payload });
+		if (!result.success) return setForm((s) => ({ ...s, error: result.data.error }))
+		navigate('/calendar');
+  };
+
   return (
     <form>
       <EmailInput email={ form.email } onChange={ setFormValue } />
       <PasswordInput password={ form.password } onChange={ setFormValue } />
       <LoginButton onClick={ submitLogin } disabled={ trueIfValuesAreInvalid() } />
+			<ErrorText error={ form.error } />
     </form>
   )
-};
-
-LoginForm.propTypes = {
-	submitLogin: func.isRequired,
 };
 
 export default LoginForm;
