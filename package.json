@@ -4,7 +4,7 @@
   "description": "Yoru Calendar is a simple calendar app that lets you view, add, update and remove tasks on days of the month.",
   "main": "index.js",
   "scripts": {
-    "install": "cd ./front-end && npm install && cd ../back-end && npm install && cd .."
+    "install": "cd ./front-end && npm install && cd ../back-end && npm install"
   },
   "repository": {
     "type": "git",
