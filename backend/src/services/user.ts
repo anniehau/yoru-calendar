@@ -2,6 +2,7 @@ import UserModel from '../models/user';
 import { RegisterBody, LoginBody } from '../interfaces/user';
 import format from '../helpers/format';
 import token from '../helpers/jwt';
+import md5 from 'md5';
 
 export default class UserService {
 	constructor(private model = new UserModel()) {}
@@ -14,8 +15,9 @@ export default class UserService {
 
 	public login = async (login: LoginBody) => {
 		const user = await this.model.getOne(login.email);
-
 		if (!user) return null;
+
+
 		if (login.password !== user.password) return null;
 
 		const formatted = format.user.body(user);
