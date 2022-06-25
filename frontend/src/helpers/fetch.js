@@ -10,7 +10,7 @@ const route = {
 export const GENERIC_ERROR = 'There was an error on our end!';
 
 // Fetch
-export const includes = {
+const includes = {
 	body: async ({ url, payload }) => {
 		const result = await fetch(`http://localhost:3001${route[url]}`, payload)
 			.then((data) => data.json());
@@ -29,3 +29,5 @@ export const includes = {
 		return { success: true, result };
 	},
 }
+
+module.exports = { includes }
