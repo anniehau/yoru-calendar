@@ -13,7 +13,7 @@ export const GENERIC_ERROR = 'There was an error on our end!';
 const handleError = (error) => {
 	console.log(error);
 	return { error: GENERIC_ERROR };
-}
+};
 
 // Fetch
 const includes = {

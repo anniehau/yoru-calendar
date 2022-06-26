@@ -1,7 +1,7 @@
 // Accept Header is required for all payloads
 const accept = {
-  Accept: 'application/json',
-  'Content-Type': 'application/json',
+	Accept: 'application/json',
+	'Content-Type': 'application/json',
 };
 
 const generic = {
@@ -10,12 +10,12 @@ const generic = {
 		headers: accept,
 		body: JSON.stringify(body),
 	})
-}
+};
 
 const to = {
 	login: (body) => generic.post(body),
 	register: (body) => generic.post(body),
-}
+};
 
 const functions = { to };
 

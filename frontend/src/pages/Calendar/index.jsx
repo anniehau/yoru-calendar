@@ -5,7 +5,7 @@ function Calendar() {
 		<>
 			Calendar
 		</>
-	)
+	);
 }
 
 export default Calendar;

@@ -1,5 +1,5 @@
 import fetch from './fetch';
-import payload from './payload'
+import payload from './payload';
 
 const create = { fetch, payload };
 
