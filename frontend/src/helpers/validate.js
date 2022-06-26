@@ -16,7 +16,7 @@ const login = {
 		default:
 			return { valid: true };
 		}
-	},
+	}
 };
 
 const register = {
@@ -43,7 +43,7 @@ const register = {
 		default:
 			return { valid: true };
 		}
-	},
+	}
 };
 
 const validate = { login, register };

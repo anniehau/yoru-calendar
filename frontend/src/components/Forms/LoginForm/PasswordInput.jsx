@@ -2,10 +2,10 @@ import React from 'react';
 import { string, func } from 'prop-types';
 
 function PasswordInput(props) {
-  const { password, onChange } = props;
+	const { password, onChange } = props;
 
-  return (
-    <div className="login__textField">
+	return (
+		<div className="login__textField">
 			<input
 				type="password"
 				value={ password }
@@ -15,12 +15,12 @@ function PasswordInput(props) {
 			<span />
 			<label>Password</label>
 		</div>
-  )
+	);
 }
 
 PasswordInput.propTypes = {
-  password: string.isRequired,
-  onChange: func.isRequired,
-}
+	password: string.isRequired,
+	onChange: func.isRequired,
+};
 
 export default PasswordInput;

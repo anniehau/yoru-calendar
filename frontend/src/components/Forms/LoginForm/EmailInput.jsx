@@ -2,10 +2,10 @@ import React from 'react';
 import { string, func } from 'prop-types';
 
 function EmailInput(props) {
-  const { email, onChange } = props;
+	const { email, onChange } = props;
 
-  return (
-    <div className="login__textField">
+	return (
+		<div className="login__textField">
 			<input
 				type="text"
 				value={ email }
@@ -16,12 +16,12 @@ function EmailInput(props) {
 			<span />
 			<label>Email</label>
 		</div>
-  )
+	);
 }
 
 EmailInput.propTypes = {
-  email: string.isRequired,
-  onChange: func.isRequired,
-}
+	email: string.isRequired,
+	onChange: func.isRequired,
+};
 
 export default EmailInput;

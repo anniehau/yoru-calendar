@@ -1,5 +1,5 @@
 const user = {
-	obj: (user) => ({ name: user.name, email: user.email, token: user.token }),
+	obj: (user) => ({ name: user.name, email: user.email, token: user.token })
 };
 
 const format = { user };

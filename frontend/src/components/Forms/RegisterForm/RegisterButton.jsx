@@ -2,21 +2,21 @@ import React from 'react';
 import { func } from 'prop-types';
 
 function RegisterButton(props) {
-  const { onClick } = props;
+	const { onClick } = props;
 
-  return (
-    <button
+	return (
+		<button
 			className="register__button"
 			type="button"
-      onClick={ onClick }
-    >
+			onClick={ onClick }
+		>
       Register
-    </button>
-  )
+		</button>
+	);
 }
 
 RegisterButton.propTypes = {
-  onClick: func.isRequired,
-}
+	onClick: func.isRequired,
+};
 
 export default RegisterButton;

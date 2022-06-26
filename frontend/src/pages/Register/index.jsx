@@ -3,11 +3,11 @@ import RegisterMain from '../../components/Main/RegisterMain';
 import '../../css/Register.css';
 
 function Register() {
-  return (
-    <>
-      <RegisterMain />
-    </>
-  )
+	return (
+		<>
+			<RegisterMain />
+		</>
+	);
 }
 
 export default Register;

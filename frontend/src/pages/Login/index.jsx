@@ -3,11 +3,11 @@ import LoginMain from '../../components/Main/LoginMain';
 import '../../css/Login.css';
 
 function Login() {
-  return (
-    <>
-      <LoginMain />
-    </>
-  )
+	return (
+		<>
+			<LoginMain />
+		</>
+	);
 }
 
 export default Login;

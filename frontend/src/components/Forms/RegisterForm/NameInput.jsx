@@ -2,9 +2,9 @@ import React from 'react';
 import { string, func } from 'prop-types';
 
 function NameInput(props) {
-  const { name, onChange } = props;
+	const { name, onChange } = props;
 
-  return (
+	return (
 		<div className="register__textField">
 			<input
 				type="text"
@@ -15,12 +15,12 @@ function NameInput(props) {
 			<span />
 			<label>Name</label>
 		</div>
-  )
+	);
 }
 
 NameInput.propTypes = {
-  name: string.isRequired,
-  onChange: func.isRequired,
-}
+	name: string.isRequired,
+	onChange: func.isRequired,
+};
 
 export default NameInput;

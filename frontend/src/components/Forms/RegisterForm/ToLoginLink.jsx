@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function ToLoginButton() {
-  return (
-    <div className="register__login">
+	return (
+		<div className="register__login">
 			<Link
 				className="login__link"
 				to="/login"
@@ -11,7 +11,7 @@ function ToLoginButton() {
 				I already have an account!
 			</Link>
 		</div>
-  )
+	);
 }
 
 export default ToLoginButton;

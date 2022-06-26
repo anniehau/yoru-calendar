@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 // Routes
 const route = {
 	login: '/users/login',
-	register: '/users/register',
+	register: '/users/register'
 };
 
 // Error Messages
@@ -21,21 +21,21 @@ const includes = {
 		const result = await fetch(`http://localhost:3001${route[url]}`, payload)
 			.then((data) => data.json())
 			.catch(handleError);
-	
-		if (result.error) return { success: false, data: result.error };
-	
-		return { success: true, data: result };
-	},
-	
-	params: async ({ url, payload, params }) => {
-		const result = await fetch(`http://localhost:3001${route[url]}/${params}`, payload)
-			.then((data) => data.json())
-			.catch(handleError);
-	
+
 		if (result.error) return { success: false, data: result.error };
 
 		return { success: true, data: result };
 	},
+
+	params: async ({ url, payload, params }) => {
+		const result = await fetch(`http://localhost:3001${route[url]}/${params}`, payload)
+			.then((data) => data.json())
+			.catch(handleError);
+
+		if (result.error) return { success: false, data: result.error };
+
+		return { success: true, data: result };
+	}
 };
 
 const functions = { includes };

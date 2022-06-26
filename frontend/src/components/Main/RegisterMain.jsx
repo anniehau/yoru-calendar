@@ -3,12 +3,12 @@ import RegisterTitle from '../Text/RegisterTitle';
 import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm';
 
 function RegisterMain() {
-  return (
-    <main className="register__center">
+	return (
+		<main className="register__center">
 			<RegisterTitle />
 			<RegisterForm />
-    </main>
-  )
+		</main>
+	);
 }
 
 export default RegisterMain;

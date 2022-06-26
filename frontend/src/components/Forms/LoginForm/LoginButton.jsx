@@ -2,21 +2,21 @@ import React from 'react';
 import { func } from 'prop-types';
 
 function LoginButton(props) {
-  const { onClick } = props;
+	const { onClick } = props;
 
-  return (
-    <button
+	return (
+		<button
 			className="login__button"
 			type="button"
-      onClick={ onClick }
-    >
+			onClick={ onClick }
+		>
       Log In
-    </button>
-  )
+		</button>
+	);
 }
 
 LoginButton.propTypes = {
-  onClick: func.isRequired,
-}
+	onClick: func.isRequired,
+};
 
 export default LoginButton;
