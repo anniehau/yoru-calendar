@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { create, format, storage } from '../../../helpers';
+import { create, format, storage, validate } from '../../../helpers';
 import NameInput from './NameInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
@@ -19,34 +19,13 @@ function RegisterForm() {
 
   // Disables RegisterButton if form values are invalid
   const validateForm = () => {
-		const nameIsFilled = form.name !== '';
-		const nameIsValid = form.name.length >= 3;
-		const emailIsFilled = form.email !== '';
-    const emailIsValid = form.email.length >= 3;
-		const passwordIsFilled = form.password !== '';
-    const passwordIsValid = form.password.length >= 6;
-		switch (true) {
-			case (!nameIsFilled):
-				setError('Name must be filled!');
-				return false;
-			case (!nameIsValid):
-				setError('Name must be at least 3 characters long!');
-				return false;
-			case (!emailIsFilled):
-				setError('Email must be filled!');
-				return false;
-			case (!emailIsValid):
-				setError('Email is invalid!');
-				return false;
-			case (!passwordIsFilled):
-				setError('Password must be filled!')
-				return false;
-			case (!passwordIsValid):
-				setError('Password must be at least 6 characters long!')
-				return false;
-			default:
-				return true;
-		}
+		const { valid, message } = validate.register.form(form);
+		if (!valid) {
+			setError(message);
+			return false;
+		};
+		setError('');
+		return true;
   }
   
   // Sets form values in state. Requires field to be "username" or "password"

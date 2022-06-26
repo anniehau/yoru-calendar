@@ -7,7 +7,7 @@ function EmailInput(props) {
   return (
     <div className="login__textField">
 			<input
-				type="email"
+				type="text"
 				value={ email }
 				autoComplete="on"
 				onChange={ (e) => onChange(e, 'email') }
