@@ -6,6 +6,7 @@ function RegisterButton(props) {
 
   return (
     <button
+			className="register__button"
 			type="button"
       disabled={ disabled }
       onClick={ onClick }

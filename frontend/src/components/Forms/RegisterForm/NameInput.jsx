@@ -5,12 +5,16 @@ function NameInput(props) {
   const { name, onChange } = props;
 
   return (
-    <input
-      type="text"
-      value={ name }
-      placeholder="Name"
-      onChange={ (e) => onChange(e, 'name') }
-    />
+		<div className="register__textField">
+			<input
+				type="text"
+				value={ name }
+				onChange={ (e) => onChange(e, 'name') }
+				required
+			/>
+			<span />
+			<label>Name</label>
+		</div>
   )
 }
 
