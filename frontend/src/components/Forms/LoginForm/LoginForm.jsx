@@ -4,7 +4,7 @@ import { create, format, storage } from '../../../helpers';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import LoginButton from './LoginButton';
-import ToRegisterButton from './ToRegisterButton';
+import ToRegisterLink from './ToRegisterLink';
 import ErrorText from './ErrorText';
 
 const INITIAL_FORM = { email: '', password: '' };
@@ -46,7 +46,7 @@ function LoginForm() {
       <EmailInput email={ form.email } onChange={ setFormValue } />
       <PasswordInput password={ form.password } onChange={ setFormValue } />
       <LoginButton onClick={ submitLogin } disabled={ trueIfValuesAreInvalid() } />
-			<ToRegisterButton />
+			<ToRegisterLink />
 			<ErrorText error={ error } />
     </form>
   )

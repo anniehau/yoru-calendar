@@ -1,11 +1,10 @@
 import React from 'react';
 import LoginMain from '../../components/Main/LoginMain';
-import Title from '../../components/Text/Title';
+import '../../css/Login.css';
 
 function Login() {
   return (
     <>
-      <Title />
       <LoginMain />
     </>
   )

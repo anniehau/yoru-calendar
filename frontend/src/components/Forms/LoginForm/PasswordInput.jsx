@@ -5,12 +5,16 @@ function PasswordInput(props) {
   const { password, onChange } = props;
 
   return (
-    <input
-      type="password"
-      value={ password }
-      placeholder="******"
-      onChange={ (e) => onChange(e, 'password') }
-    />
+    <div className="login__textField">
+			<input
+				type="password"
+				value={ password }
+				onChange={ (e) => onChange(e, 'password') }
+				required
+			/>
+			<span />
+			<label>Password</label>
+		</div>
   )
 }
 
