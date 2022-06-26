@@ -17,11 +17,27 @@ function LoginForm() {
 	const [error, setError] = useState('');
 
   // Disables LoginButton if form values are invalid
-  const trueIfValuesAreInvalid = () => {
-    const emailIsInvalid = form.email.length < 3;
-    const passwordIsInvalid = form.password.length < 6;
-    if (emailIsInvalid || passwordIsInvalid) return true;
-    return false;
+  const validateForm = () => {
+		const emailIsFilled = form.email !== '';
+    const emailIsValid = form.email.length >= 3;
+		const passwordIsFilled = form.password !== '';
+    const passwordIsValid = form.password.length >= 6;
+    switch (true) {
+			case (!emailIsFilled):
+				setError('Email must be filled!');
+				return false;
+			case (!emailIsValid):
+				setError('Email is invalid!');
+				return false;
+			case (!passwordIsFilled):
+				setError('Password must be filled!')
+				return false;
+			case (!passwordIsValid):
+				setError('Password must be at least 6 characters long!')
+				return false;
+			default:
+				return true;
+		}
   }
   
   // Sets form values in state. Requires field to be "username" or "password"
@@ -33,6 +49,8 @@ function LoginForm() {
 
 	// Submits Login and shows error if it's returned
   const submitLogin = async () => {
+		const formIsValid = validateForm();
+		if (!formIsValid) return false;
     const payload = create.payload.to.login(form);
 		const result = await create.fetch.includes.body({ url: 'login', payload });
 		if (!result.success) return setError(result.data.error);
@@ -45,9 +63,9 @@ function LoginForm() {
     <form>
       <EmailInput email={ form.email } onChange={ setFormValue } />
       <PasswordInput password={ form.password } onChange={ setFormValue } />
-      <LoginButton onClick={ submitLogin } disabled={ trueIfValuesAreInvalid() } />
+      <ErrorText error={ error } />
+			<LoginButton onClick={ submitLogin } />
 			<ToRegisterLink />
-			<ErrorText error={ error } />
     </form>
   )
 };

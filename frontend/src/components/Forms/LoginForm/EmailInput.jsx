@@ -9,7 +9,7 @@ function EmailInput(props) {
 			<input
 				type="email"
 				value={ email }
-				autoComplete='on'
+				autoComplete="on"
 				onChange={ (e) => onChange(e, 'email') }
 				required
 			/>

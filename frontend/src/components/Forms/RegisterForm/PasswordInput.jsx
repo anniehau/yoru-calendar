@@ -5,7 +5,7 @@ function PasswordInput(props) {
   const { password, onChange } = props;
 
   return (
-		<div className="login__textField">
+		<div className="register__textField">
 			<input
 				type="password"
 				value={ password }

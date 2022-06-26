@@ -18,12 +18,35 @@ function RegisterForm() {
 	const [error, setError] = useState('');
 
   // Disables RegisterButton if form values are invalid
-  const trueIfValuesAreInvalid = () => {
-		const nameIsInvalid = form.name.length < 3;
-    const emailIsInvalid = form.email.length < 3;
-    const passwordIsInvalid = form.password.length < 6;
-    if (nameIsInvalid || emailIsInvalid || passwordIsInvalid) return true;
-    return false;
+  const validateForm = () => {
+		const nameIsFilled = form.name !== '';
+		const nameIsValid = form.name.length >= 3;
+		const emailIsFilled = form.email !== '';
+    const emailIsValid = form.email.length >= 3;
+		const passwordIsFilled = form.password !== '';
+    const passwordIsValid = form.password.length >= 6;
+		switch (true) {
+			case (!nameIsFilled):
+				setError('Name must be filled!');
+				return false;
+			case (!nameIsValid):
+				setError('Name must be at least 3 characters long!');
+				return false;
+			case (!emailIsFilled):
+				setError('Email must be filled!');
+				return false;
+			case (!emailIsValid):
+				setError('Email is invalid!');
+				return false;
+			case (!passwordIsFilled):
+				setError('Password must be filled!')
+				return false;
+			case (!passwordIsValid):
+				setError('Password must be at least 6 characters long!')
+				return false;
+			default:
+				return true;
+		}
   }
   
   // Sets form values in state. Requires field to be "username" or "password"
@@ -35,6 +58,8 @@ function RegisterForm() {
 
 	// Submits fetch and shows error if it's returned
   const submitRegister = async () => {
+		const formIsValid = validateForm();
+		if (!formIsValid) return false;
     const payload = create.payload.to.register(form);
 		const result = await create.fetch.includes.body({ url: 'register', payload });
 		if (!result.success) return setError(result.data.error)
@@ -48,9 +73,9 @@ function RegisterForm() {
 			<NameInput name={ form.name } onChange={ setFormValue } />
       <EmailInput email={ form.email } onChange={ setFormValue } />
       <PasswordInput password={ form.password } onChange={ setFormValue } />
-      <RegisterButton onClick={ submitRegister } disabled={ trueIfValuesAreInvalid() } />
-			<ToLoginLink />
 			<ErrorText error={ error } />
+      <RegisterButton onClick={ submitRegister } />
+			<ToLoginLink />
     </form>
   )
 };
