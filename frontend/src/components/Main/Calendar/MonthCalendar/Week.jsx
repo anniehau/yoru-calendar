@@ -6,7 +6,7 @@ function Week(props) {
 	const { week } = props;
 
 	return (
-		<div>
+		<div className="calendar__week">
 			{
 				week.map((day) => (
 					<Day key={ week.indexOf(day) } day={ day } />
