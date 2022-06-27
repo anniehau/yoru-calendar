@@ -13,4 +13,15 @@ export default class TaskController {
 			res.status(500).json({ error: 'The server ran into some kind of problem!' });
 		}
 	};
+
+	public getByEmail = async (req: Request, res: Response) => {
+		const { title } = req.body;
+		try {
+			const result = await this.service.getByTitle(title);
+			if (!result) return res.status(404).json({ error: 'Task not found!' });
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
+		}
+	};
 }
