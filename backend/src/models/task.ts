@@ -1,5 +1,5 @@
 import Task from '../database/models/Task';
-import { DbResult } from '../interfaces/task';
+import { DbResult, ITask } from '../interfaces/task';
 import { Op } from 'sequelize';
 
 export default class TaskModel {
@@ -14,6 +14,13 @@ export default class TaskModel {
 				[Op.substring]: title,
 			}
 		}});
+		return result;
+	};
+
+	public update = async (task: ITask): Promise<DbResult> => {
+		const result = await Task.findByPk(task.id);
+		if (!result) return null;
+		result.set(task);
 		return result;
 	};
 }

@@ -19,6 +19,18 @@ export default class TaskController {
 		try {
 			const result = await this.service.getByTitle(title);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
+			res.status(200).json(result);
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
+		}
+	};
+
+	public update = async (req: Request, res: Response) => {
+		try {
+			const result = await this.service.update(req.body);
+			if (!result) return res.status(404).json({ error: 'Task not found!' });
+			res.status(200).json();
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ error: 'The server ran into some kind of problem!' });
