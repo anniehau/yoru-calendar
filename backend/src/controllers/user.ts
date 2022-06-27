@@ -16,6 +16,18 @@ export default class UserController {
 		}
 	};
 
+	public getOne = async (req: Request, res: Response) => {
+		const { email } = req.body;
+		try {
+			const result = await this.service.getOne(email);
+			if (!result) return res.status(401).json({ error: 'User not found!' });
+			return res.status(200).json(result);
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
+		}
+	};
+
 	public login = async (req: Request, res: Response) => {
 		try {
 			const result = await this.service.login(req.body);

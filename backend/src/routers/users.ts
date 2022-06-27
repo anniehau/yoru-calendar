@@ -9,6 +9,11 @@ const schema = new UserSchema();
 const router = Router();
 
 router.get(
+	'/',
+	controller.getOne,
+);
+
+router.get(
 	'/:id',
 	controller.getById,
 );

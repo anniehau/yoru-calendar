@@ -13,6 +13,13 @@ export default class UserService {
 		return format.user.body(result);
 	};
 
+	public getOne = async (email: string) => {
+		const result = await this.model.getOne(email);
+		if (!result) return null;
+
+		return format.user.body(result);
+	};
+
 	public login = async (login: LoginBody) => {
 		const user = await this.model.getOne(login.email);
 		if (!user) return null;
