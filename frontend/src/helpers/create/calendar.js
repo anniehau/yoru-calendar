@@ -1,10 +1,7 @@
-import moment from 'moment';
-
 const monthFunctions = {
-	format: () => {
-		const value = moment();
-		const startDay = value.clone().startOf('month').startOf('week');
-		const endDay = value.clone().endOf('month').endOf('week');
+	format: (date) => {
+		const startDay = date.clone().startOf('month').startOf('week');
+		const endDay = date.clone().endOf('month').endOf('week');
 		const day = startDay.clone().subtract(1, 'day');
 
 		const calendar = [];
@@ -23,6 +20,18 @@ const monthFunctions = {
 	}
 };
 
-const calendar = { month: monthFunctions };
+const weeks = () => {
+	return [
+		{ name: 'Sunday', letter: 'S' },
+		{ name: 'Monday', letter: 'M' },
+		{ name: 'Tuesday', letter: 'T' },
+		{ name: 'Wednesday', letter: 'W' },
+		{ name: 'Thursday', letter: 'T' },
+		{ name: 'Friday', letter: 'F' },
+		{ name: 'Saturday', letter: 'S' },
+	];
+};
+
+const calendar = { month: monthFunctions, weeks };
 
 export default calendar;

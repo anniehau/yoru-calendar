@@ -6,7 +6,7 @@
 	transform: translate(-50%, -50%);
 	width: 400px;
 	background: white;
-	border-radius: 15px 15px 0 0;
+	border: 1px solid #444cdb;
 }
 
 .calendar__headerMonth {
@@ -14,9 +14,17 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+	height: 33px;
+	color: white;
+	background-color: #444cdb;
+}
+
+.calendar__headerWeek {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 	height: 44px;
-	border-radius: 15px 15px 0 0;
-	border: 1px solid black;
 }
 
 /* Elements */
@@ -32,6 +40,51 @@
 	flex-grow: 1;
 	flex-shrink: 1;
 	flex-basis: 0;
-	border: 1px solid black;
 	height: 100%;
+	cursor: default;
+}
+
+.calendar__dayOff {
+	color: #c2c2c2;
+	cursor: default;
+}
+
+.calendar__headerWeek .week {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	height: 100%;
+}
+
+.calendar__advanceMonthBtn {
+	color: white;
+	margin: 0 10px 0 auto;
+	background-color: transparent;
+	border: 0;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.calendar__retreatMonthBtn {
+	color: white;
+	margin: 0 auto 0 10px;
+	background-color: transparent;
+	border: 0;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+/* Effects */
+.calendar__day:not(.calendar__dayOff):hover {
+	color: white;
+	background-color: #444cdb;
+	cursor: pointer;
+}
+
+.calendar__advanceMonthBtn:hover, .calendar__retreatMonthBtn:hover {
+	text-decoration: underline;
+	cursor: pointer;
 }
