@@ -4,10 +4,10 @@
   "description": "Yoru Calendar is a simple calendar app that lets you view, add, update and remove tasks on days of the month.",
   "main": "index.js",
   "scripts": {
-		"start": "npm run compose:down && npm run compose:up",
+    "start": "npm run compose:down && npm run compose:up",
     "install": "cd ./frontend && npm install && cd ../backend && npm install",
-		"compose:up": "docker-compose -p yoru_calendar up -d --build",
-		"compose:down": "docker-compose -p yoru_calendar down --remove-orphans"
+    "compose:up": "docker-compose -p yoru_calendar up -d --build",
+    "compose:down": "docker-compose -p yoru_calendar down --remove-orphans"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/anniehau/yoru-calendar/issues"
   },
-  "homepage": "https://github.com/anniehau/yoru-calendar#readme"
+  "homepage": "https://github.com/anniehau/yoru-calendar#readme",
+  "dependencies": {
+    "moment": "^2.29.3"
+  }
 }
