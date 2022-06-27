@@ -7,7 +7,6 @@ export default class TaskSchema {
 	});
 
 	public taskBody = Joi.object({
-		userId: Joi.number().required(),
 		title: Joi.string().required(),
 		description: Joi.string(),
 		datetime: Joi.string().required(),

@@ -17,7 +17,7 @@ export default class TaskService {
 	};
 
 	public update = async (userId: number, id: number, task: ITask) => {
-		const result = await this.model.update(userId, task);
+		const result = await this.model.update(userId, id, task);
 		if (!result) return null;
 		return result;
 	};
