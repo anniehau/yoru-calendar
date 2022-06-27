@@ -23,4 +23,9 @@ export default class TaskModel {
 		result.set(task);
 		return result;
 	};
+
+	public create = async (task: ITask): Promise<DbResult> => {
+		const result = await Task.create(task);
+		return result;
+	};
 }

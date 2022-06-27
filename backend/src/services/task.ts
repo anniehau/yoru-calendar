@@ -21,4 +21,9 @@ export default class TaskService {
 		if (!result) return null;
 		return result;
 	};
+
+	public create = async (task: ITask) => {
+		const result = await this.model.create(task);
+		return result;
+	};
 }

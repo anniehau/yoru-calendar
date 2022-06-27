@@ -36,4 +36,14 @@ export default class TaskController {
 			res.status(500).json({ error: 'The server ran into some kind of problem!' });
 		}
 	};
+
+	public create = async (req: Request, res: Response) => {
+		try {
+			const result = await this.service.create(req.body);
+			return res.status(201).json(result);
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
+		}
+	};
 }
