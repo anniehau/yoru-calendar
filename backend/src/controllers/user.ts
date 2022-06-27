@@ -6,7 +6,6 @@ export default class UserController {
 
 	public getById = async (req: Request, res: Response) => {
 		const { id } = req.params;
-		
 		try {
 			const result = await this.service.getById(Number(id));
 			if (!result) return res.status(404).json({ error: 'User not found!' });
