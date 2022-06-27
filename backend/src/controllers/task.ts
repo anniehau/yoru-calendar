@@ -14,7 +14,7 @@ export default class TaskController {
 		}
 	};
 
-	public getByEmail = async (req: Request, res: Response) => {
+	public getByTitle = async (req: Request, res: Response) => {
 		const { title } = req.body;
 		try {
 			const result = await this.service.getByTitle(title);
