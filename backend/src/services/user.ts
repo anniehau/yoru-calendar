@@ -7,16 +7,16 @@ import token from '../helpers/jwt';
 export default class UserService {
 	constructor(private model = new UserModel()) {}
 
-	public getById = async (id: number) => {
-		const result = await this.model.getById(id);
-		if (!result) return null;
-		return format.user.body(result);
-	};
-
 	public getOne = async (email: string) => {
 		const result = await this.model.getOne(email);
 		if (!result) return null;
 
+		return format.user.body(result);
+	};
+
+	public getById = async (id: number) => {
+		const result = await this.model.getById(id);
+		if (!result) return null;
 		return format.user.body(result);
 	};
 
