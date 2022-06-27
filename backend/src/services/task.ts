@@ -26,4 +26,10 @@ export default class TaskService {
 		const result = await this.model.create(task);
 		return result;
 	};
+
+	public remove = async (id: number) => {
+		const result = await this.model.remove(id);
+		if (result === 0) return null;
+		return result;
+	};
 }

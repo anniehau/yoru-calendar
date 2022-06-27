@@ -19,7 +19,7 @@ export default class TaskController {
 		try {
 			const result = await this.service.getByTitle(title);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
-			res.status(200).json(result);
+			return res.status(200).json(result);
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ error: 'The server ran into some kind of problem!' });
@@ -30,7 +30,7 @@ export default class TaskController {
 		try {
 			const result = await this.service.update(req.body);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
-			res.status(200).json();
+			return res.status(200).json(result);
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ error: 'The server ran into some kind of problem!' });
@@ -41,6 +41,18 @@ export default class TaskController {
 		try {
 			const result = await this.service.create(req.body);
 			return res.status(201).json(result);
+		} catch (error) {
+			console.log(error);
+			res.status(500).json({ error: 'The server ran into some kind of problem!' });
+		}
+	};
+
+	public remove = async (req: Request, res: Response) => {
+		const { id } = req.params;
+		try {
+			const result = await this.service.remove(Number(id));
+			if (!result) return res.status(404).json({ error: 'Task not found!' });
+			return res.status(200).json({ rowsDeleted: result });
 		} catch (error) {
 			console.log(error);
 			res.status(500).json({ error: 'The server ran into some kind of problem!' });

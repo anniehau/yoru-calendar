@@ -28,4 +28,9 @@ export default class TaskModel {
 		const result = await Task.create(task);
 		return result;
 	};
+
+	public remove = async (id: number): Promise<number> => {
+		const result = await Task.destroy({ where: { id } });
+		return result;
+	};
 }
