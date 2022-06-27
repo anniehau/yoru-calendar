@@ -10,13 +10,73 @@
 
 .main__header .header__right {
 	display: flex;
+	align-items: center;
 }
 
 /* Elements */
-.main__header .header__right .header__name {
-	font-weight: 600;
+.main__header .header__calendarBtn {
+	background-color: transparent;
+	border: 0;
+	color: white;
+	margin: 0 22px 0 11px;
+	height: 44px;
+	width: 44px;
+	transition: .2s;
 }
 
-.main__header .header__right .header__logoutBtn {
-	margin: 0 11px;
+.main__header .header__profileBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 600;
+	height: 44px;
+	width: 99px;
+	background-color: black;
+	color: white;
+	border: none;
+	transition: .2s;
+}
+
+.main__header .header__logoutBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #db1919;
+	border: 0;
+	border-radius: 25px;
+	color: white;
+	margin: 0 11px 0 11px;
+	width: 99px;
+	height: 22px;
+	font-weight: 700;
+	box-sizing: content-box;
+	border: 0 solid #db1919;
+	transition: .1s;
+}
+
+.logoutBtn__icon {
+	position: relative;
+	margin-left: 8px;
+}
+
+.profileBtn__icon {
+	position: relative;
+	left: 4px;
+	margin-left: 2px;
+}
+
+/* Effects */
+.header__calendarBtn:hover {
+	background-color: #444cdb;
+	cursor: pointer;
+}
+
+.header__profileBtn:hover {
+	background-color: #444cdb;
+	cursor: pointer;
+}
+
+.header__logoutBtn:hover {
+	border: 3px solid #db1919;
+	cursor: pointer;
 }

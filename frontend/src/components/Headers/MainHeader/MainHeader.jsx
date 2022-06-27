@@ -1,15 +1,16 @@
 import React from 'react';
-import NameText from './NameText';
+import CalendarButton from './CalendarButton';
+import ProfileButton from './ProfileButton';
 import LogoutButton from './LogoutButton';
 
 function WeekHeader() {
 	return (
 		<header className="main__header">
-			<div className="header__right">
-
+			<div className="header__left">
+				<CalendarButton />
 			</div>
 			<div className="header__right">
-				<NameText />
+				<ProfileButton />
 				<LogoutButton />
 			</div>
 		</header>
