@@ -1,5 +1,5 @@
 import User from '../database/models/User';
-import { IUser, DbResult, RegisterBody } from '../interfaces/user';
+import { DbResult, IUser, RegisterBody } from '../interfaces/user';
 
 export default class UserModel {
 	public async getOne(email: string): Promise<DbResult> {
