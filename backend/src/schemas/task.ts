@@ -1,12 +1,8 @@
 import Joi from 'joi';
 
 export default class TaskSchema {
-	public getAllFromUserBody = Joi.object({
-		userId: Joi.number().required(),
-	});
 
 	public getByTitleBody = Joi.object({
-		userId: Joi.number().required(),
 		title: Joi.string().required(),
 	});
 

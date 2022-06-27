@@ -7,7 +7,6 @@ const jwtSecret = fs.readFileSync('jwt.key', 'utf-8');
 const jwtConfig = { expiresIn: '7d' };
 
 const verify = (token: string) => jwt.verify(token, jwtSecret);
-
 const generate = (user: IUser) => jwt.sign(user, jwtSecret, jwtConfig);
 
 const token = { verify, generate };

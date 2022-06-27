@@ -18,20 +18,20 @@ export default class TaskModel {
 		return result;
 	};
 
-	public update = async (task: ITask): Promise<DbResult> => {
+	public update = async (userId: number, task: ITask): Promise<DbResult> => {
 		const result = await Task.findByPk(task.id);
 		if (!result) return null;
 		result.set(task);
 		return result;
 	};
 
-	public create = async (task: ITask): Promise<DbResult> => {
-		const result = await Task.create(task);
+	public create = async (userId: number, task: ITask): Promise<DbResult> => {
+		const result = await Task.create({ ...task, userId });
 		return result;
 	};
 
-	public remove = async (id: number): Promise<number> => {
-		const result = await Task.destroy({ where: { id } });
+	public remove = async (userId: number, id: number): Promise<number> => {
+		const result = await Task.destroy({ where: { id, userId } });
 		return result;
 	};
 }

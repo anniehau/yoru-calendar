@@ -1,11 +1,13 @@
 import TaskService from '../services/task';
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { RequestWithUser } from '../interfaces/user';
 
 export default class TaskController {
 	constructor(private service = new TaskService()) { }
 
-	public getAllFromUser = async (req: Request, res: Response) => {
-		const { userId } = req.body;
+	public getAllFromUser = async (req: RequestWithUser, res: Response) => {
+		if (!req.user) return res.status(500).json({ error: 'Unknown token error!' });
+		const userId = Number(req.user.id);
 		try {
 			const result = await this.service.getAllFromUser(userId);
 			return res.status(200).json(result);
@@ -15,8 +17,10 @@ export default class TaskController {
 		}
 	};
 
-	public getByTitle = async (req: Request, res: Response) => {
-		const { userId, title } = req.body;
+	public getByTitle = async (req: RequestWithUser, res: Response) => {
+		if (!req.user) return res.status(500).json({ error: 'Unknown token error!' });
+		const userId = Number(req.user.id);
+		const { title } = req.body;
 		try {
 			const result = await this.service.getByTitle(userId, title);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
@@ -27,10 +31,13 @@ export default class TaskController {
 		}
 	};
 
-	public update = async (req: Request, res: Response) => {
-		const { id } = req.params;
+	public update = async (req: RequestWithUser, res: Response) => {
+		if (!req.user) return res.status(500).json({ error: 'Unknown token error!' });
+		const userId = Number(req.user.id);
+		const id = Number(req.params.id);
+		const task = req.body;
 		try {
-			const result = await this.service.update(Number(id), req.body);
+			const result = await this.service.update(userId, id, task);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
 			return res.status(200).json(result);
 		} catch (error) {
@@ -39,9 +46,12 @@ export default class TaskController {
 		}
 	};
 
-	public create = async (req: Request, res: Response) => {
+	public create = async (req: RequestWithUser, res: Response) => {
+		if (!req.user) return res.status(500).json({ error: 'Unknown token error!' });
+		const userId = Number(req.user.id);
+		const task = req.body;
 		try {
-			const result = await this.service.create(req.body);
+			const result = await this.service.create(userId, task);
 			return res.status(201).json(result);
 		} catch (error) {
 			console.log(error);
@@ -49,10 +59,12 @@ export default class TaskController {
 		}
 	};
 
-	public remove = async (req: Request, res: Response) => {
-		const { id } = req.params;
+	public remove = async (req: RequestWithUser, res: Response) => {
+		if (!req.user) return res.status(500).json({ error: 'Unknown token error!' });
+		const userId = Number(req.user.id);
+		const id = Number(req.params.id);
 		try {
-			const result = await this.service.remove(Number(id));
+			const result = await this.service.remove(userId, id);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
 			return res.status(200).json({ rowsDeleted: result });
 		} catch (error) {

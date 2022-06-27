@@ -1,7 +1,6 @@
 // Full type
 export type ITask = {
 	id?: number,
-	userId?: number,
 	title: string,
 	description: string,
 	datetime: string,

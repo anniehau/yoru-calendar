@@ -16,19 +16,19 @@ export default class TaskService {
 		return result;
 	};
 
-	public update = async (id: number, task: ITask) => {
-		const result = await this.model.update(task);
+	public update = async (userId: number, id: number, task: ITask) => {
+		const result = await this.model.update(userId, task);
 		if (!result) return null;
 		return result;
 	};
 
-	public create = async (task: ITask) => {
-		const result = await this.model.create(task);
+	public create = async (userId: number, task: ITask) => {
+		const result = await this.model.create(userId, task);
 		return result;
 	};
 
-	public remove = async (id: number) => {
-		const result = await this.model.remove(id);
+	public remove = async (userId: number, id: number) => {
+		const result = await this.model.remove(userId, id);
 		if (result === 0) return null;
 		return result;
 	};
