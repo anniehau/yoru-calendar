@@ -1,3 +1,3 @@
-import MonthCalendar from './MonthCalendar/MonthCalendar';
+import MonthCalendar from './MonthCalendar';
 
 export { MonthCalendar };

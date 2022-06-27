@@ -1,6 +1,6 @@
 import React from 'react';
-import LoginTitle from '../Text/LoginTitle';
-import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import LoginTitle from './LoginTitle';
+import { LoginForm } from '../../../components/Forms';
 
 function LoginMain() {
 	return (

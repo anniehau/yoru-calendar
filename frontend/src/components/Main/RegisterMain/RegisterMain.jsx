@@ -1,6 +1,6 @@
 import React from 'react';
-import RegisterTitle from '../Text/RegisterTitle';
-import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm';
+import RegisterTitle from './RegisterTitle';
+import { RegisterForm } from '../../../components/Forms';
 
 function RegisterMain() {
 	return (
