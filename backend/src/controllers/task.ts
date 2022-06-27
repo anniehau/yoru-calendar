@@ -4,9 +4,10 @@ import { Request, Response } from 'express';
 export default class TaskController {
 	constructor(private service = new TaskService()) { }
 
-	public getAll = async (req: Request, res: Response) => {
+	public getAllFromUser = async (req: Request, res: Response) => {
+		const { userId } = req.body;
 		try {
-			const result = await this.service.getAll();
+			const result = await this.service.getAllFromUser(userId);
 			return res.status(200).json(result);
 		} catch (error) {
 			console.log(error);
@@ -15,9 +16,9 @@ export default class TaskController {
 	};
 
 	public getByTitle = async (req: Request, res: Response) => {
-		const { title } = req.body;
+		const { userId, title } = req.body;
 		try {
-			const result = await this.service.getByTitle(title);
+			const result = await this.service.getByTitle(userId, title);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
 			return res.status(200).json(result);
 		} catch (error) {
@@ -27,8 +28,9 @@ export default class TaskController {
 	};
 
 	public update = async (req: Request, res: Response) => {
+		const { id } = req.params;
 		try {
-			const result = await this.service.update(req.body);
+			const result = await this.service.update(Number(id), req.body);
 			if (!result) return res.status(404).json({ error: 'Task not found!' });
 			return res.status(200).json(result);
 		} catch (error) {

@@ -3,13 +3,14 @@ import { DbResult, ITask } from '../interfaces/task';
 import { Op } from 'sequelize';
 
 export default class TaskModel {
-	public getAll = async (): Promise<DbResult[]> => {
-		const result = await Task.findAll();
+	public getAllFromUser = async (userId: number): Promise<DbResult[]> => {
+		const result = await Task.findAll({ where: { userId } });
 		return result;
 	};
 
-	public getByTitle = async (title: string): Promise<DbResult> => {
+	public getByTitle = async (userId: number, title: string): Promise<DbResult> => {
 		const result = await Task.findOne({ where: {
+			userId,
 			title: {
 				[Op.substring]: title,
 			}

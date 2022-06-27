@@ -10,11 +10,13 @@ const router = Router();
 
 router.get(
 	'/',
-	controller.getAll,
+	validateSchemaMiddleware(schema.getAllFromUserBody),
+	controller.getAllFromUser,
 );
 
 router.get(
 	'/title',
+	validateSchemaMiddleware(schema.getByTitleBody),
 	controller.getByTitle,
 );
 
@@ -25,7 +27,7 @@ router.post(
 );
 
 router.put(
-	'/',
+	'/:id',
 	validateSchemaMiddleware(schema.taskBody),
 	controller.update,
 );

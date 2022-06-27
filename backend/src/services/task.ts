@@ -4,19 +4,19 @@ import { ITask } from '../interfaces/task';
 export default class TaskService {
 	constructor(private model = new TaskModel()) { }
 
-	public getAll = async () => {
-		const result = await this.model.getAll();
+	public getAllFromUser = async (userId: number) => {
+		const result = await this.model.getAllFromUser(userId);
 		if (!result) return null;
 		return result;
 	};
 
-	public getByTitle = async (title: string) => {
-		const result = await this.model.getByTitle(title);
+	public getByTitle = async (userId: number, title: string) => {
+		const result = await this.model.getByTitle(userId, title);
 		if (!result) return null;
 		return result;
 	};
 
-	public update = async (task: ITask) => {
+	public update = async (id: number, task: ITask) => {
 		const result = await this.model.update(task);
 		if (!result) return null;
 		return result;
