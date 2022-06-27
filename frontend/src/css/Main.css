@@ -1,0 +1,22 @@
+/* Blocks */
+.main__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: black;
+	color: white;
+	height: 44px;
+}
+
+.main__header .header__right {
+	display: flex;
+}
+
+/* Elements */
+.main__header .header__right .header__name {
+	font-weight: 600;
+}
+
+.main__header .header__right .header__logoutBtn {
+	margin: 0 11px;
+}
