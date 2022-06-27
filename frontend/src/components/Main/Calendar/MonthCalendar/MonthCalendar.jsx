@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import create from '../../../../helpers/create';
 import Week from './Week';
+import '../../../../css/Calendar/MonthCalendar.css';
 
 function MonthCalendar() {
 	const [calendar, setCalendar] = useState([]);

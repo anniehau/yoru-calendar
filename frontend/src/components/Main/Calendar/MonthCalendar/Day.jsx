@@ -6,7 +6,7 @@ function Day(props) {
 	const formattedDay = day.format('D');
 
 	return (
-		<div >
+		<div className="calendar__day">
 			{ formattedDay }
 		</div>
 	);

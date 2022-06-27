@@ -6,9 +6,13 @@ function Week(props) {
 	const { week } = props;
 
 	return (
-		week.map((day) => (
-			<Day key={ week.indexOf(day) } day={ day } />
-		))
+		<div>
+			{
+				week.map((day) => (
+					<Day key={ week.indexOf(day) } day={ day } />
+				))
+			}
+		</div>
 	);
 }
 
