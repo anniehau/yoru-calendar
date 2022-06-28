@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import { create, format, storage, validate } from '../../../helpers';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import LoginButton from './LoginButton';
 import ToRegisterLink from './ToRegisterLink';
 import ErrorText from './ErrorText';
+import AppContext from '../../../context/AppContext';
 
 const INITIAL_FORM = { email: '', password: '' };
 
 function LoginForm() {
-	const navigate = useNavigate();
+	const { reloadApi } = useContext(AppContext);
 
 	// State
 	const [form, setForm] = useState(INITIAL_FORM);
@@ -43,7 +43,7 @@ function LoginForm() {
 		if (!result.success) return setError(result.data);
 		const user = format.user.obj(result.data);
 		storage.user.set(user);
-		navigate('/calendar');
+		reloadApi();
 	};
 
 	return (

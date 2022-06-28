@@ -1,14 +1,14 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext } from 'react';
 import { storage } from '../../../helpers';
 import { BsBoxArrowRight } from 'react-icons/bs';
+import AppContext from '../../../context/AppContext';
 
 function LogoutButton() {
-	const navigate = useNavigate();
+	const { reloadApi } = useContext(AppContext);
 
 	const submitLogout = () => {
 		storage.user.remove();
-		navigate('/login');
+		reloadApi();
 	};
 
 	return (

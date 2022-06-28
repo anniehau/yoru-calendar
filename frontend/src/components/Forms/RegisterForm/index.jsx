@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
 import { create, format, storage, validate } from '../../../helpers';
 import NameInput from './NameInput';
 import EmailInput from './EmailInput';
@@ -7,11 +6,12 @@ import PasswordInput from './PasswordInput';
 import RegisterButton from './RegisterButton';
 import ToLoginLink from './ToLoginLink';
 import ErrorText from './ErrorText';
+import AppContext from '../../../context/AppContext';
 
 const INITIAL_FORM = { name: '', email: '', password: '' };
 
 function RegisterForm() {
-	const navigate = useNavigate();
+	const { reloadApi } = useContext(AppContext);
 
 	// State
 	const [form, setForm] = useState(INITIAL_FORM);
@@ -44,7 +44,7 @@ function RegisterForm() {
 		if (!result.success) return setError(result.data.error);
 		const user = format.user.obj(result.data);
 		storage.user.set(user);
-		navigate('/calendar');
+		reloadApi();
 	};
 
 	return (

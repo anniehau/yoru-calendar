@@ -1,9 +1,12 @@
 import React from 'react';
 import PageRoutes from './routes';
+import AppProvider from './context/AppProvider';
 
 function App () {
 	return (
-		<PageRoutes />
+		<AppProvider>
+			<PageRoutes />
+		</AppProvider>
 	);
 }
 

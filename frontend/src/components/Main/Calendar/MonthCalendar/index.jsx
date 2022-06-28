@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import moment from 'moment';
 import create from '../../../../helpers/create';
 import Week from './Week';
 import MonthHeader from './MonthHeader';
 import WeekHeader from './WeekHeader';
+import AppContext from '../../../../context/AppContext';
 import '../../../../css/Calendar/MonthCalendar.css';
 
 function MonthCalendar() {
 	const [calendar, setCalendar] = useState([]);
 	const [date, setDate] = useState(moment());
+	const { state } = useContext(AppContext);
 
 	useEffect(() => {
 		setCalendar(create.calendar.month.format(date));
@@ -30,6 +32,7 @@ function MonthCalendar() {
 	);
 
 	return (
+		!state.apiIsLoading && state.isLoggedIn &&
 		<main className="calendar__month">
 			<MonthHeader
 				month={ currMonthName() }

@@ -12,9 +12,26 @@ const generic = {
 	})
 };
 
+const payload = {
+	includes: {
+		token: {
+			get: (token = '') => ({
+				method: 'GET',
+				headers: {
+					...accept,
+					'Authorization': token,
+				},
+			})
+		}
+	},
+};
+
 const to = {
 	login: (body) => generic.post(body),
-	register: (body) => generic.post(body)
+	register: (body) => generic.post(body),
+	get: {
+		tasks: (token) => payload.includes.token.get(token)
+	}
 };
 
 const functions = { to };
