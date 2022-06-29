@@ -1,4 +1,5 @@
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import EditTaskForm from './EditTaskForm';
 
-export { LoginForm, RegisterForm };
+export { LoginForm, RegisterForm, EditTaskForm };

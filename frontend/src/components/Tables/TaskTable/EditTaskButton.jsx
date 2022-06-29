@@ -1,22 +1,14 @@
-import React, { useContext } from 'react';
-import { number } from 'prop-types';
+import React from 'react';
+import { shape, func } from 'prop-types';
 import { BsPencilFill } from 'react-icons/bs';
-import AppContext from '../../../context/AppContext';
 
 function EditTaskButton(props) {
-	const { id } = props;
-	const { tasks, setTasks } = useContext(AppContext);
-
-	const editTask = () => {
-		const filtered = tasks.filter((task) => task.id !== id);
-		setTasks(filtered);
-	};
-
+	const { task, onClick } = props;
 	return (
 		<td>
 			<button
 				className="table__editTaskBtn"
-				onClick={ editTask }
+				onClick={ () => onClick(task) }
 			>
 				<BsPencilFill />
 			</button>
@@ -25,7 +17,8 @@ function EditTaskButton(props) {
 }
 
 EditTaskButton.propTypes = {
-	id: number.isRequired,
+	task: shape({}).isRequired,
+	onClick: func.isRequired,
 };
 
 export default EditTaskButton;

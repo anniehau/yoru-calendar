@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { shape } from 'prop-types';
+import { shape, func } from 'prop-types';
 import AppContext from '../../../context/AppContext';
 import TableItem from './TableItem';
 import '../../../css/Calendar/TaskTable.css';
 
 function TaskTable(props) {
-	const { date } = props;
+	const { date, goToTaskEdit } = props;
 	const [tasks, setTasks] = useState([]);
 	const { tasks: allTasks } = useContext(AppContext);
 
@@ -30,11 +30,8 @@ function TaskTable(props) {
 			return (
 				<TableItem
 					key={ task.id }
-					id={ task.id }
-					title={ task.title }
-					description={ task.description }
-					duration={ task.duration }
-					datetime={ task.datetime }
+					task={ task }
+					goToTaskEdit={ goToTaskEdit }
 				/>
 			);
 		})
@@ -61,6 +58,7 @@ function TaskTable(props) {
 
 TaskTable.propTypes = {
 	date: shape({}).isRequired,
+	goToTaskEdit: func.isRequired,
 };
 
 export default TaskTable;
