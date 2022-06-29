@@ -4,6 +4,7 @@ import TitleText from './TitleText';
 import DurationText from './DurationText';
 import DateText from './DateText';
 import TimeText from './TimeText';
+import EditTaskButton from './EditTaskButton';
 import DeleteTaskButton from './DeleteTaskButton';
 
 function TableItem(props) {
@@ -16,9 +17,8 @@ function TableItem(props) {
 			<DateText date={ date } />
 			<TimeText time={ time } />
 			<DurationText duration={ duration } />
-			<td>
-				<DeleteTaskButton id={ id } />
-			</td>
+			<EditTaskButton id={ id } />
+			<DeleteTaskButton id={ id } />
 		</tr>
 	);
 }

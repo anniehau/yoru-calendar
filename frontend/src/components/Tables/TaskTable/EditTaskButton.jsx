@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { number } from 'prop-types';
-import { BsTrashFill } from 'react-icons/bs';
+import { BsPencilFill } from 'react-icons/bs';
 import AppContext from '../../../context/AppContext';
 
-function DeleteTaskButton(props) {
+function EditTaskButton(props) {
 	const { id } = props;
 	const { tasks, setTasks } = useContext(AppContext);
 
-	const deleteTask = () => {
+	const editTask = () => {
 		const filtered = tasks.filter((task) => task.id !== id);
 		setTasks(filtered);
 	};
@@ -15,16 +15,16 @@ function DeleteTaskButton(props) {
 	return (
 		<td>
 			<button
-				onClick={ deleteTask }
+				onClick={ editTask }
 			>
-				<BsTrashFill />
+				<BsPencilFill />
 			</button>
 		</td>
 	);
 }
 
-DeleteTaskButton.propTypes = {
+EditTaskButton.propTypes = {
 	id: number.isRequired,
 };
 
-export default DeleteTaskButton;
+export default EditTaskButton;
