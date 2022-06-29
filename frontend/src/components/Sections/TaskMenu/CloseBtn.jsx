@@ -5,9 +5,10 @@ function CloseBtn(props) {
 	const { onClick } = props;
 	return (
 		<button
+			className="menu__closeBtn"
 			onClick={ onClick }
 		>
-			x
+			X
 		</button>
 	);
 }

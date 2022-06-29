@@ -1,22 +1,21 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { shape, func } from 'prop-types';
 import Title from './Title';
 import CloseBtn from './CloseBtn';
 
 function MenuHeader(props) {
-	const { month, year, onClick } = props;
+	const { date, closeMenu } = props;
 	return (
-		<header>
-			<Title month={ month } year={ year } />
-			<CloseBtn onClick={ onClick } />
+		<header className="menu__header">
+			<Title date={ date } />
+			<CloseBtn onClick={ closeMenu } />
 		</header>
 	);
 }
 
 MenuHeader.propTypes = {
-	month: string.isRequired,
-	year: string.isRequired,
-	onClick: func.isRequired,
+	date: shape({}).isRequired,
+	closeMenu: func.isRequired,
 };
 
 export default MenuHeader;

@@ -1,9 +1,9 @@
 import React from 'react';
-import { arrayOf, shape } from 'prop-types';
+import { arrayOf, shape, func } from 'prop-types';
 import Day from './Day';
 
 function Week(props) {
-	const { week, date } = props;
+	const { week, date, onClick } = props;
 
 	return (
 		<div className="calendar__week">
@@ -13,6 +13,7 @@ function Week(props) {
 						key={ week.indexOf(day) }
 						day={ day }
 						date={ date }
+						onClick={ onClick }
 					/>
 				))
 			}
@@ -23,6 +24,7 @@ function Week(props) {
 Week.propTypes = {
 	week: arrayOf(shape({})).isRequired,
 	date: shape({}).isRequired,
+	onClick: func.isRequired,
 };
 
 export default Week;

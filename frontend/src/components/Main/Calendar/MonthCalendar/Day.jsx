@@ -1,8 +1,8 @@
 import React from 'react';
-import { shape } from 'prop-types';
+import { shape, func } from 'prop-types';
 
 function Day(props) {
-	const { day, date } = props;
+	const { day, date, onClick } = props;
 
 	const isOff = date.format('MMMM') === day.format('MMMM') ? '' : 'calendar__dayOff';
 	const formattedDay = day.format('D');
@@ -10,6 +10,7 @@ function Day(props) {
 	return (
 		<div
 			className={ `calendar__day ${isOff}` }
+			onClick={ () => onClick(day) }
 		>
 			{ formattedDay }
 		</div>
@@ -19,6 +20,7 @@ function Day(props) {
 Day.propTypes = {
 	day: shape({}).isRequired,
 	date: shape({}).isRequired,
+	onClick: func.isRequired,
 };
 
 export default Day;

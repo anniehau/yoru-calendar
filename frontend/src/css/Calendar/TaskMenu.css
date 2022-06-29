@@ -1,0 +1,36 @@
+.task__menu {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 800px;
+	height: 400px;
+	background: white;
+	border: 1px solid #444cdb;
+	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+	z-index: 2;
+}
+
+.task__menu .menu__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 33px;
+	background-color: black;
+	color: white;
+}
+
+.menu__header .menu__title {
+	margin-left: 11px;
+	font-weight: 600;
+}
+
+.menu__header .menu__closeBtn {
+	display: flex;
+	margin-right: 11px;
+	font-weight: 600;
+	color: white;
+	background-color: #db1919;
+	border: 0;
+	border-radius: 25px;
+}
