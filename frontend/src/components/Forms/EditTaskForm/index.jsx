@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { shape, func } from 'prop-types';
+import Title from './Title';
 import TitleInput from './TitleInput';
 import DescriptionTextArea from './DescriptionTextArea';
 import DatetimeInput from './DatetimeInput';
 import DurationSelect from './DurationSelect';
+import FinishEditButton from './FinishEditButton';
 import ReturnButton from './ReturnButton';
 import { format } from '../../../helpers';
+import '../../../css/Calendar/EditTaskForm.css';
 
 const INITIAL_FORM = {
 	title: '',
@@ -44,11 +47,15 @@ function EditTaskForm(props) {
 
 	return (
 		<form className="form__editTask">
+			<Title />
 			<TitleInput title={ form.title } onChange={ setFormValue } />
 			<DescriptionTextArea description={ form.description } onChange={ setFormValue } />
 			<DatetimeInput datetime={ form.datetime } onChange={ setFormValue } />
 			<DurationSelect duration={ form.duration } onChange={ setFormValue } />
-			<ReturnButton onClick={ goToTaskTable } />
+			<div className="editTask__buttons">
+				<FinishEditButton />
+				<ReturnButton onClick={ goToTaskTable } />
+			</div>
 		</form>
 	);
 }

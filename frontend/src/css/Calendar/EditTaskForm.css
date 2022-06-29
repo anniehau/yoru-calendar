@@ -1,0 +1,174 @@
+/* Blocks */
+.form__editTask {
+	display: flex;
+	flex-direction: column;
+	margin: 6px 18px 0 11px;
+}
+
+.form__editTask .editTask__title {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+}
+
+.form__editTask .editTask__description {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	margin-right: 12px;
+}
+
+.form__editTask .editTask__datetime {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+}
+
+.form__editTask .editTask__duration {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+}
+
+/* Elements */
+.form__editTask .editTask__pageTitle {
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.form__editTask .editTask__title input {
+	padding-top: 11px;
+	height: 33px;
+	width: 100%;
+	border: none;
+	outline: none;
+}
+
+.form__editTask .editTask__title label {
+	position: absolute;
+	bottom: 0px;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	border-bottom: 1px solid black;
+}
+
+.form__editTask .editTask__title label:after {
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	bottom: -1px;
+	transform: translateX(-100%);
+	transition: transform 0.3s ease;
+	pointer-events: none;
+}
+
+.editTask__title .content__name {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	transition: all 0.3s ease;
+}
+
+.form__editTask .editTask__description textarea {
+	padding: 5px;
+	height: 44px;
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 2px;
+	font-size: 12px;
+	font-family: 'Montserrat';
+	outline: none;
+	resize: none;
+	transition: .3s;
+}
+
+.form__editTask .editTask__datetime input {
+	height: 22px;
+	width: 132px;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid black;
+	text-align: center;
+	transition: .3s;
+}
+
+.form__editTask .editTask__duration select {
+	height: 22px;
+	width: 100px;
+	border: 1px solid #ccc;
+}
+
+.content__optional {
+	color: #888;
+	font-size: 10px;
+}
+
+.form__editTask .editTask__finishEditBtn {
+	background-color: #d8b02b;
+	color: white;
+	border: 0 solid #d8b02b;
+	box-sizing: content-box;
+	border-radius: 11px;
+	height: 22px;
+	width: 90px;
+	transition: .1s;
+	margin-right: 8px;
+}
+
+.form__editTask .editTask__returnBtn {
+	background-color: #444cdb;
+	color: white;
+	border: 0 solid #444cdb;
+	box-sizing: content-box;
+	border-radius: 11px;
+	height: 22px;
+	width: 90px;
+	transition: .1s;
+}
+
+/* Effects */
+.form__editTask input:focus + .label__name .content__name,
+.form__editTask input:valid + .label__name .content__name {
+	transform: translateY(-110%);
+}
+
+.form__editTask input:focus + .label__name:after,
+.form__editTask input:valid + .label__name:after {
+	transform: translateX(0%);
+}
+
+.form__editTask .editTask__description textarea:hover,
+.form__editTask .editTask__description textarea:focus,
+.form__editTask .editTask__description textarea:valid {
+	-moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.03);
+	-webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.03);
+	box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.03);
+}
+
+.form__editTask .editTask__datetime input:hover,
+.form__editTask .editTask__datetime input:valid {
+	border-bottom: 1px solid black;
+	width: 150px;
+}
+
+.form__editTask .editTask__duration select:hover {
+	cursor: pointer;
+} 
+
+.form__editTask .editTask__finishEditBtn:hover {
+	border: 2px solid #d8b02b;
+	cursor: pointer;
+}
+
+.form__editTask .editTask__returnBtn:hover {
+	border: 2px solid #444cdb;
+	cursor: pointer;
+}

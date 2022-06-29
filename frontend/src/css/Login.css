@@ -1,8 +1,4 @@
 /* Blocks */
-body {
-	background: linear-gradient(120deg, #fcfcfc, #edebff);
-}
-
 .login__center {
 	position: absolute;
 	top: 50%;

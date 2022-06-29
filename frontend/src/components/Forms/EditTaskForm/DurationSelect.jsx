@@ -3,7 +3,7 @@ import { string, func } from 'prop-types';
 
 function DurationSelect(props) {
 	const { duration, onChange } = props;
-	const durations = ['30m', '60m', '90m', '120m+'];
+	const durations = ['None', '30m', '60m', '90m', '120m+'];
 	
 	const options = (
 		durations.map((d) => (
@@ -14,7 +14,12 @@ function DurationSelect(props) {
 	);
 
 	return (
-		<div className="">
+		<div className="editTask__duration">
+			<label className="label__name">
+				<span className="content__name">Duration</span>
+				{' '}
+				<span className="content__optional">(optional)</span>
+			</label>
 			<select
 				value={ duration }
 				onChange={ (e) => onChange(e, 'duration') }

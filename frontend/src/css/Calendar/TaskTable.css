@@ -48,7 +48,7 @@
 
 /* Effects */
 .table__tasks .table__editTaskBtn:hover {
-	background-color: #50af25;
+	background-color: #d8b02b;
 	color: white;
 	cursor: pointer;
 }

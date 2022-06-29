@@ -5,7 +5,7 @@ function NewTaskButton() {
 		<button
 			className="menu__newTaskBtn"
 		>
-			+
+			New Task
 		</button>
 	);
 }

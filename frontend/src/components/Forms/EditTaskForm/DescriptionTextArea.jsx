@@ -5,15 +5,18 @@ function DescriptionTextArea(props) {
 	const { description, onChange } = props;
 
 	return (
-		<div className="">
+		<div className="editTask__description">
+			<label className="label__name">
+				<span className="content__name">Description</span>
+				{' '}
+				<span className="content__optional">(optional)</span>
+			</label>
 			<textarea
 				type="text"
 				value={ description }
 				onChange={ (e) => onChange(e, 'description') }
 				required
 			/>
-			<span />
-			<label>Description</label>
 		</div>
 	);
 }

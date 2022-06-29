@@ -50,15 +50,15 @@
 }
 
 .menu__footer .menu__newTaskBtn {
-	background-color: black;
-	border: 0 solid black;
+	background-color: #50af25;
+	border: 0 solid #50af25;
 	border-radius: 25px;
 	box-sizing: content-box;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 	color: white;
 	margin-left: 6px;
 	height: 22px;
-	width: 33px;
+	width: 66px;
 	transition: .1s;
 }
 
@@ -69,6 +69,6 @@
 }
 
 .menu__newTaskBtn:hover {
-	border: 2px solid black;
+	border: 2px solid #50af25;
 	cursor: pointer;
 }

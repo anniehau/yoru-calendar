@@ -5,15 +5,16 @@ function TitleInput(props) {
 	const { title, onChange } = props;
 
 	return (
-		<div className="">
+		<div className="editTask__title">
 			<input
 				type="text"
 				value={ title }
 				onChange={ (e) => onChange(e, 'title') }
 				required
 			/>
-			<span />
-			<label>Title</label>
+			<label className="label__name">
+				<span className="content__name">Title</span>
+			</label>
 		</div>
 	);
 }

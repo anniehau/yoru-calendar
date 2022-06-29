@@ -1,19 +1,23 @@
 import React from 'react';
 import { string, func } from 'prop-types';
+import Flatpickr from 'react-flatpickr';
+import 'flatpickr/dist/themes/material_green.css';
 
 function DatetimeInput(props) {
 	const { datetime, onChange } = props;
 
 	return (
-		<div className="">
-			<input
+		<div className="editTask__datetime">
+			<label className="label__name">
+				<span className="content__name">Date & Time</span>
+			</label>
+			<Flatpickr
+				date-enable-time
+				options={{ enableTime: true, dateFormat: 'Y-m-d, H:i K' }}
 				type="datetime-local"
 				value={ datetime }
 				onChange={ (e) => onChange(e, 'datetime') }
-				required
 			/>
-			<span />
-			<label>Date & Time</label>
 		</div>
 	);
 }
