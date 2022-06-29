@@ -1,3 +1,4 @@
+/* Blocks */
 .task__menu {
 	position: absolute;
 	top: 50%;
@@ -6,7 +7,7 @@
 	width: 800px;
 	height: 400px;
 	background: white;
-	border: 1px solid #444cdb;
+	border: 1px solid black;
 	box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 	z-index: 2;
 }
@@ -20,17 +21,54 @@
 	color: white;
 }
 
+.menu__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+	height: 33px;
+}
+
+/* Elements */
 .menu__header .menu__title {
+	font-size: 14px;
 	margin-left: 11px;
 	font-weight: 600;
 }
 
 .menu__header .menu__closeBtn {
-	display: flex;
 	margin-right: 11px;
 	font-weight: 600;
 	color: white;
 	background-color: #db1919;
-	border: 0;
+	border: 0 solid #db1919;
+	box-sizing: content-box;
+	width: 22px;
 	border-radius: 25px;
+	transition: .1s;
+}
+
+.menu__footer .menu__newTaskBtn {
+	background-color: black;
+	border: 0 solid black;
+	border-radius: 25px;
+	box-sizing: content-box;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	color: white;
+	margin-left: 6px;
+	height: 22px;
+	width: 33px;
+	transition: .1s;
+}
+
+/* Effects */
+.menu__closeBtn:hover {
+	border: 2px solid #db1919;
+	cursor: pointer;
+}
+
+.menu__newTaskBtn:hover {
+	border: 2px solid black;
+	cursor: pointer;
 }

@@ -15,6 +15,7 @@ function DeleteTaskButton(props) {
 	return (
 		<td>
 			<button
+				className="table__deleteTaskBtn"
 				onClick={ deleteTask }
 			>
 				<BsTrashFill />

@@ -1,0 +1,60 @@
+/* Blocks */
+.table__tasks {
+	border-collapse: collapse;
+	text-align: left;
+	width: 100%;
+	font-weight: hold;
+}
+
+/* Elements */
+.table__tasks thead tr {
+	background: #444cdb;
+	color: white;
+}
+
+.table__tasks thead th {
+	padding: 3px 11px;
+}
+
+.table__tasks tbody th, td {
+	padding: 3px 11px;
+}
+
+.table__tasks tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+.table__tasks tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.table__tasks .table__editTaskBtn {
+	background-color: transparent;
+	border: 0;
+	border-radius: 11px;
+	margin: 0 1px;
+	width: 33px;
+	transition: .1s;
+}
+
+.table__tasks .table__deleteTaskBtn {
+	background-color: transparent;
+	border: 0;
+	border-radius: 11px;
+	margin: 0 10px;
+	width: 33px;
+	transition: .1s;
+}
+
+/* Effects */
+.table__tasks .table__editTaskBtn:hover {
+	background-color: #50af25;
+	color: white;
+	cursor: pointer;
+}
+
+.table__tasks .table__deleteTaskBtn:hover {
+	background-color: #db1919;
+	color: white;
+	cursor: pointer;
+}

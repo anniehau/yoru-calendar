@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { shape } from 'prop-types';
 import AppContext from '../../../context/AppContext';
 import TableItem from './TableItem';
+import '../../../css/Calendar/TaskTable.css';
 
 function TaskTable(props) {
 	const { date } = props;
@@ -40,16 +41,18 @@ function TaskTable(props) {
 	);
 
 	return (
-		<table className="table__task">
+		<table className="table__tasks">
 			<thead>
 				<tr>
 					<th>Task</th>
 					<th>Date</th>
 					<th>Time</th>
 					<th>Duration</th>
+					<th>Edit</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody className="table__tasksBody">
 				{ tableBody }
 			</tbody>
 		</table>

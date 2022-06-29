@@ -15,6 +15,7 @@ function EditTaskButton(props) {
 	return (
 		<td>
 			<button
+				className="table__editTaskBtn"
 				onClick={ editTask }
 			>
 				<BsPencilFill />

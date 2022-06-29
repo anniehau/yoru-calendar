@@ -3,6 +3,7 @@ import { shape, func } from 'prop-types';
 import MenuHeader from './MenuHeader';
 import TaskTable from '../../Tables/TaskTable';
 import '../../../css/Calendar/TaskMenu.css';
+import MenuFooter from './MenuFooter';
 
 function TaskMenu(props) {
 	const { date, closeMenu } = props;
@@ -14,6 +15,7 @@ function TaskMenu(props) {
 				closeMenu={ closeMenu }
 			/>
 			<TaskTable date={ date } />
+			<MenuFooter />
 		</section>
 	);
 }
