@@ -1,12 +1,9 @@
 import React from 'react';
-import { BsPencilFill } from 'react-icons/bs';
 
 function Title() {
 	return (
 		<h1 className="newTask__pageTitle">
-			<BsPencilFill />
-			{' '}
-			Edit Task
+			New Task
 		</h1>
 	);
 }
