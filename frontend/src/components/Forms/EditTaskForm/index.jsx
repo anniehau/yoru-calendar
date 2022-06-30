@@ -33,7 +33,7 @@ function EditTaskForm(props) {
 
 	// Sets datetime value to form state
 	const setDatetime = (event) => {
-		const datetime = format.task.datetime.normal(event[0]);
+		const datetime = new Date(event[0]);
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
 	};
@@ -44,7 +44,7 @@ function EditTaskForm(props) {
 		setForm({
 			title: task.title,
 			description: task.description,
-			datetime: format.task.datetime.normal(task.datetime),
+			datetime: new Date(task.datetime),
 			duration: task.duration,
 		});
 	};
@@ -52,7 +52,13 @@ function EditTaskForm(props) {
 	// Submits edit to database with new values
 	const submitEditTask = async () => {
 		const token = storage.user.token.get();
-		const payload = create.payload.to.put.task({ token, body: form });
+		const payload = create.payload.to.put.task({
+			token,
+			body: {
+				...form,
+				datetime: format.task.datetime.normal(form.datetime)
+			}
+		});
 		const result = await create.fetch.includes.params({ url: 'tasks', payload, params: task.id });
 		if (!result.success) console.log(result.data);
 		reloadApi();

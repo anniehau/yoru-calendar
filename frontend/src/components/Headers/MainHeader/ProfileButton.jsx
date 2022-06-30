@@ -12,7 +12,8 @@ function ProfileButton() {
 		setName(user.name);
 	}, []);
 
-	const goToProfile = () => navigate('/profile');
+	// Navigates to profile page (not implemented yet)
+	const goToProfile = () => navigate('/');
 
 	return (
 		<div>

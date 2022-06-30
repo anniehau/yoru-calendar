@@ -7,7 +7,7 @@ function EditTaskButton(props) {
 	return (
 		<button
 			className="taskDetails__editTaskBtn"
-			onClick={ () => onClick(task) }
+			onClick={ (e) => onClick(e, task) }
 		>
 			<BsPencilFill />
 			{' '}

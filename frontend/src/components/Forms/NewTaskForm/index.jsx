@@ -33,28 +33,36 @@ function NewTaskForm(props) {
 
 	// Sets datetime value to form state
 	const setDatetime = (event) => {
-		const datetime = format.task.datetime.normal(event[0]);
+		const datetime = new Date(event[0]);
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
+	};
+	
+	// Sets datetime to current datetime
+	const prepareForm = () => {
+		if (!date) return false;
+		const formatted = date.format().replace('Z', '');
+		const datetime = new Date(formatted);
+		setForm({
+			...INITIAL_FORM,
+			datetime,
+		});
 	};
 
 	// Submits task to database
 	const submitNewTask = async () => {
 		const token = storage.user.token.get();
-		const payload = create.payload.to.post.task({ token, body: form });
+		const payload = create.payload.to.post.task({
+			token,
+			body: {
+				...form,
+				datetime: format.task.datetime.normal(form.datetime),
+			}
+		});
 		const result = await create.fetch.includes.body({ url: 'tasks', payload });
 		if (!result.success) console.log(result.data);
 		reloadApi();
 		goToTaskTable();
-	};
-
-	// Sets datetime to current datetime
-	const prepareForm = () => {
-		if (!date) return false;
-		setForm({
-			...INITIAL_FORM,
-			datetime: format.task.datetime.behind(date.format()),
-		});
 	};
 
 	useEffect(() => prepareForm(), []);

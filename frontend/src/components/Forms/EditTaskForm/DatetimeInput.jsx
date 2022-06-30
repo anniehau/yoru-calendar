@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { instanceOf, func } from 'prop-types';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/themes/material_green.css';
 
@@ -9,7 +9,8 @@ function DatetimeInput(props) {
 	const options = {
 		mode: 'single',
 		enableTime: true,
-		dateFormat: 'Y-m-d, H:i K'
+		time_24hr: true,
+		dateFormat: 'Y-m-d, H:i'
 	};
 
 	return (
@@ -28,7 +29,7 @@ function DatetimeInput(props) {
 }
 
 DatetimeInput.propTypes = {
-	datetime: string.isRequired,
+	datetime: instanceOf(Date).isRequired,
 	onChange: func.isRequired,
 };
 
