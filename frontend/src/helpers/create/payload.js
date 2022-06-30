@@ -21,6 +21,13 @@ const payload = {
 					...accept,
 					'Authorization': token,
 				},
+			}),
+			remove: (token = '') => ({
+				method: 'DELETE',
+				headers: {
+					...accept,
+					'Authorization': token,
+				}
 			})
 		}
 	},
@@ -31,6 +38,9 @@ const to = {
 	register: (body) => generic.post(body),
 	get: {
 		tasks: (token) => payload.includes.token.get(token)
+	},
+	remove: {
+		task: (token) => payload.includes.token.remove(token)
 	}
 };
 
