@@ -8,8 +8,7 @@ function DeleteTaskButton(props) {
 	const { id } = props;
 	const { reloadApi } = useContext(AppContext);
 
-	const deleteTask = async (e) => {
-		e.stopPropagation();
+	const deleteTask = async () => {
 		const token = storage.user.token.get();
 		const payload = create.payload.to.remove.task(token);
 		const result = await create.fetch.includes.params({ url: 'tasks', payload, params: id });
@@ -18,14 +17,14 @@ function DeleteTaskButton(props) {
 	};
 
 	return (
-		<td>
-			<button
-				className="table__deleteTaskBtn"
-				onClick={ deleteTask }
-			>
-				<BsTrashFill />
-			</button>
-		</td>
+		<button
+			className="taskDetails__deleteTaskBtn"
+			onClick={ deleteTask }
+		>
+			<BsTrashFill />
+			{' '}
+			Delete
+		</button>
 	);
 }
 

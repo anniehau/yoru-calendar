@@ -5,7 +5,8 @@ function Duration(props) {
 	const { duration } = props;
 	return (
 		<div className="taskDetails__duration">
-			{ duration }
+			{ duration
+			&& `Task will take ${duration.replace('m', '')} minutes` }
 		</div>
 	);
 }

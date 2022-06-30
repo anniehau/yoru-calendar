@@ -5,14 +5,14 @@ import { BsPencilFill } from 'react-icons/bs';
 function EditTaskButton(props) {
 	const { task, onClick } = props;
 	return (
-		<td>
-			<button
-				className="table__editTaskBtn"
-				onClick={ (e) => onClick(e, task) }
-			>
-				<BsPencilFill />
-			</button>
-		</td>
+		<button
+			className="taskDetails__editTaskBtn"
+			onClick={ () => onClick(task) }
+		>
+			<BsPencilFill />
+			{' '}
+			Edit
+		</button>
 	);
 }
 

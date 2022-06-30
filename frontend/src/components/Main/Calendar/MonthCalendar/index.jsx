@@ -4,7 +4,7 @@ import create from '../../../../helpers/create';
 import Week from './Week';
 import MonthHeader from './MonthHeader';
 import WeekHeader from './WeekHeader';
-import TaskMenu from '../../../Sections/TaskMenu';
+import { TaskMenu } from '../../../Sections';
 import AppContext from '../../../../context/AppContext';
 import '../../../../css/Calendar/MonthCalendar.css';
 

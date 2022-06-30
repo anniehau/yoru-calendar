@@ -1,17 +1,14 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { BsCalendar2EventFill } from 'react-icons/bs';
 
-function Title(props) {
-	const { title } = props;
+function Title() {
 	return (
 		<h1 className="taskDetails__title">
-			{ title }
+			<BsCalendar2EventFill />
+			{' '}
+			Task Details
 		</h1>
 	);
 }
-
-Title.propTypes = {
-	title: string.isRequired,
-};
 
 export default Title;

@@ -8,11 +8,11 @@ import EditTaskButton from './EditTaskButton';
 import DeleteTaskButton from './DeleteTaskButton';
 
 function TableItem(props) {
-	const { task, goToTaskEdit } = props;
+	const { task, goToTaskEdit, onClick } = props;
 	const date = task.datetime.substring(0, task.datetime.indexOf('T')).replaceAll('-', '/');
 	const time = new Date(task.datetime).toLocaleTimeString();
 	return (
-		<tr>
+		<tr onClick={ () => onClick(task) }>
 			<TitleText title={ task.title } />
 			<DateText date={ date } />
 			<TimeText time={ time } />
@@ -26,6 +26,7 @@ function TableItem(props) {
 TableItem.propTypes = {
 	task: shape({}).isRequired,
 	goToTaskEdit: func.isRequired,
+	onClick: func.isRequired,
 };
 
 export default TableItem;

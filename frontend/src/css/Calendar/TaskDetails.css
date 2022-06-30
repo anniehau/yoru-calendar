@@ -1,0 +1,64 @@
+/* Blocks */
+.task__details {
+	display: flex;
+	flex-direction: column;
+	margin: -11px 0 0 11px;
+}
+
+/* Elements */
+.taskDetails__title {
+	margin-bottom: 0;
+}
+
+.taskDetails__taskTitle {
+	color: #444cdb;
+	margin-bottom: 0;
+}
+
+.taskDetails__datetime, .taskDetails__duration {
+	font-size: 14px;
+	color: #777;
+}
+
+.taskDetails__description {
+	margin-top: 11px;
+	margin-bottom: 0;
+}
+
+.taskDetails__buttons {
+	display: flex;
+	margin-top: 11px;
+}
+
+.taskDetails__editTaskBtn {
+	background-color: #d8b02b;
+	color: white;
+	border: 0 solid #d8b02b;
+	box-sizing: content-box;
+	border-radius: 11px;
+	height: 22px;
+	width: 50px;
+	transition: .1s;
+	margin-right: 11px;
+}
+
+.taskDetails__deleteTaskBtn {
+	background-color: #db1919;
+	color: white;
+	border: 0 solid #db1919;
+	box-sizing: content-box;
+	border-radius: 11px;
+	height: 22px;
+	width: 70px;
+	transition: .1s;
+}
+
+.taskDetails__editTaskBtn:hover {
+	border: 2px solid #d8b02b;
+	cursor: pointer;
+}
+
+.taskDetails__deleteTaskBtn:hover {
+	border: 2px solid #db1919;
+	cursor: pointer;
+}

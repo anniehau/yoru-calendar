@@ -5,7 +5,7 @@ import TableItem from './TableItem';
 import '../../../css/Calendar/TaskTable.css';
 
 function TaskTable(props) {
-	const { date, goToTaskEdit } = props;
+	const { date, goToTaskEdit, goToTaskDetails } = props;
 	const [tasks, setTasks] = useState([]);
 	const { tasks: allTasks } = useContext(AppContext);
 
@@ -32,6 +32,7 @@ function TaskTable(props) {
 					key={ task.id }
 					task={ task }
 					goToTaskEdit={ goToTaskEdit }
+					onClick={ goToTaskDetails }
 				/>
 			);
 		})
@@ -59,6 +60,7 @@ function TaskTable(props) {
 TaskTable.propTypes = {
 	date: shape({}).isRequired,
 	goToTaskEdit: func.isRequired,
+	goToTaskDetails: func.isRequired,
 };
 
 export default TaskTable;
