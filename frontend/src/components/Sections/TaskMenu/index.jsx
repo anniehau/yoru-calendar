@@ -17,23 +17,37 @@ function TaskMenu(props) {
 	const { date, closeMenu } = props;
 
 	const goToTaskTable = () => setMenu({ ...INITIAL_MENU, name: 'table' });
+
 	const goToTaskEdit = (e, task) => {
 		e.stopPropagation();
 		setMenu({ name: 'edit', task });
 	};
+
 	const goToNewTask = () => setMenu({ ...INITIAL_MENU, name: 'new' });
+	
 	const goToTaskDetails = (task) => setMenu({ name: 'details', task });
 
 	const main = (
 		<>
-			{ menu.name === 'table'
-				&& <TaskTable date={ date } goToTaskEdit={ goToTaskEdit } goToTaskDetails={ goToTaskDetails } /> }
-			{ menu.name === 'edit'
-				&& <EditTaskForm task={ menu.task } goToTaskTable={ goToTaskTable } /> }
-			{ menu.name === 'new'
-				&& <NewTaskForm date={ date } goToTaskTable={ goToTaskTable } /> }
-			{ menu.name === 'details'
-				&& <TaskDetails task={ menu.task } goToTaskEdit={ goToTaskEdit } /> }
+			{ menu.name === 'table' &&
+				<TaskTable
+					date={ date }
+					goToTaskEdit={ goToTaskEdit }
+					goToTaskDetails={ goToTaskDetails }
+				/> }
+			{ menu.name === 'edit' &&
+			<EditTaskForm
+				task={ menu.task }
+				goToTaskTable={ goToTaskTable }
+			/> }
+			{ menu.name === 'new' &&
+			<NewTaskForm date={ date }
+				goToTaskTable={ goToTaskTable }
+			/> }
+			{ menu.name === 'details' &&
+			<TaskDetails task={ menu.task }
+				goToTaskEdit={ goToTaskEdit }
+			/> }
 		</>
 	);
 	
