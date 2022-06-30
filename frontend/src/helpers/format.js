@@ -3,8 +3,6 @@ const user = {
 };
 
 const task = {
-	date: (datetime) => new Date(datetime).substring(0, datetime.indexOf('T')).replaceAll('-', '/'),
-	time: (datetime, locale='en_us') => new Date(datetime).toLocaleTimeString(locale),
 	datetime: (datetime) => datetime.replace(/\.\d+Z/, ''),
 };
 

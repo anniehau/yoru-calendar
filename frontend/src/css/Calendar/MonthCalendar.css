@@ -35,6 +35,7 @@
 }
 
 .calendar__day {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -76,6 +77,21 @@
 	border: 0;
 	font-size: 16px;
 	font-weight: 600;
+}
+
+.day__tasks {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgb(216, 176, 43, 0.5);
+	color: white;
+	font-size: 10px;
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
 }
 
 /* Effects */

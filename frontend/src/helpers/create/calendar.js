@@ -20,6 +20,16 @@ const monthFunctions = {
 	}
 };
 
+const dateFunctions = {
+	format: (datetime) => {
+		const date = new Date(datetime);
+		const day = date.getDate();
+		const month = date.getMonth() + 1;
+		const year = date.getFullYear();
+		return `${day}/${month}/${year}`;
+	}
+};
+
 const weeks = () => {
 	return [
 		{ name: 'Sunday', letter: 'S' },
@@ -32,6 +42,6 @@ const weeks = () => {
 	];
 };
 
-const calendar = { month: monthFunctions, weeks };
+const calendar = { month: monthFunctions, date: dateFunctions, weeks };
 
 export default calendar;
