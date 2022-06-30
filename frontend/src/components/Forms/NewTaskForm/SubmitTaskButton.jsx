@@ -1,7 +1,7 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-function SubmitEditButton(props) {
+function SubmitTaskButton(props) {
 	const { onClick } = props;
 	return (
 		<button
@@ -14,8 +14,8 @@ function SubmitEditButton(props) {
 	);
 }
 
-SubmitEditButton.propTypes = {
+SubmitTaskButton.propTypes = {
 	onClick: func.isRequired,
 };
 
-export default SubmitEditButton;
+export default SubmitTaskButton;

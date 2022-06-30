@@ -7,7 +7,7 @@ function MenuHeader(props) {
 	const { date, taskAmount, closeMenu } = props;
 	const renderTaskAmount = (
 		<span className="menu__headerTasks">
-			{ taskAmount || 0 }
+			{ taskAmount }
 		</span>
 	);
 	return (

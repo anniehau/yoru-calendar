@@ -28,7 +28,23 @@ const payload = {
 					...accept,
 					'Authorization': token,
 				}
-			})
+			}),
+			put: ({ token = '', body }) => ({
+				method: 'PUT',
+				headers: {
+					...accept,
+					'Authorization': token,
+				},
+				body: JSON.stringify(body)
+			}),
+			post: ({ token = '', body }) => ({
+				method: 'POST',
+				headers: {
+					...accept,
+					'Authorization': token,
+				},
+				body: JSON.stringify(body)
+			}),
 		}
 	},
 };
@@ -41,6 +57,12 @@ const to = {
 	},
 	remove: {
 		task: (token) => payload.includes.token.remove(token)
+	},
+	put: {
+		task: ({ token, body }) => payload.includes.token.put({ token, body })
+	},
+	post: {
+		task: ({ token, body }) => payload.includes.token.post({ token, body })
 	}
 };
 

@@ -5,10 +5,10 @@ import TitleInput from './TitleInput';
 import DescriptionTextArea from './DescriptionTextArea';
 import DatetimeInput from './DatetimeInput';
 import DurationSelect from './DurationSelect';
-import SubmitEditButton from './SubmitEditButton';
+import SubmitTaskButton from './SubmitTaskButton';
 import { format, create, storage } from '../../../helpers';
 import AppContext from '../../../context/AppContext';
-import '../../../css/Calendar/EditTaskForm.css';
+import '../../../css/Calendar/NewTaskForm.css';
 
 const INITIAL_FORM = {
 	title: '',
@@ -17,8 +17,8 @@ const INITIAL_FORM = {
 	duration: '',
 };
 
-function EditTaskForm(props) {
-	const { task, goToTaskTable } = props;
+function NewTaskForm(props) {
+	const { date, goToTaskTable } = props;
 	const { reloadApi } = useContext(AppContext);
 
 	// States
@@ -37,31 +37,26 @@ function EditTaskForm(props) {
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
 	};
-
-	// Sets form based on task currently being edited
-	const prepareForm = () => {
-		if (!task) return false;
-		setForm({
-			title: task.title,
-			description: task.description,
-			datetime: format.task.datetime(task.datetime),
-			duration: task.duration,
-		});
-	};
-
 	// Submits edit to database with new ata
-	const submitEditTask = async () => {
+	const submitNewTask = async () => {
 		const token = storage.user.token.get();
-		const payload = create.payload.to.put.task({ token, body: form });
-		const result = await create.fetch.includes.params({ url: 'tasks', payload, params: task.id });
-		if (!result.success) console.log(result.data.error);
+		const payload = create.payload.to.post.task({ token, body: form });
+		const result = await create.fetch.includes.body({ url: 'tasks', payload });
+		if (!result.success) console.log(result.data);
 		reloadApi();
 		goToTaskTable();
 	};
 
-	useEffect(() => {
-		prepareForm();
-	}, [task]);
+	// Sets datetime to current datetime
+	const prepareForm = () => {
+		if (!date) return false;
+		setForm({
+			...INITIAL_FORM,
+			datetime: format.task.datetime(date.format()),
+		});
+	};
+
+	useEffect(() => prepareForm, [date]);
 
 	return (
 		<form className="form__editTask">
@@ -70,14 +65,14 @@ function EditTaskForm(props) {
 			<DescriptionTextArea description={ form.description } onChange={ setFormValue } />
 			<DatetimeInput datetime={ form.datetime } onChange={ setDatetime } />
 			<DurationSelect duration={ form.duration } onChange={ setFormValue } />
-			<SubmitEditButton onClick={ submitEditTask } />
+			<SubmitTaskButton onClick={ submitNewTask } />
 		</form>
 	);
 }
 
-EditTaskForm.propTypes = {
-	task: shape({}).isRequired,
+NewTaskForm.propTypes = {
+	date: shape({}).isRequired,
 	goToTaskTable: func.isRequired,
 };
 
-export default EditTaskForm;
+export default NewTaskForm;

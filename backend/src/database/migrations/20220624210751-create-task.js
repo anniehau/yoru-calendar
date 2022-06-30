@@ -18,12 +18,12 @@ module.exports = {
 				type: Sequelize.STRING(50),
 				allowNull: false,
 			},
-			description: Sequelize.STRING,
+			description: Sequelize.STRING(200),
 			datetime: {
 				type: Sequelize.DATE,
 				allowNull: false,
 			},
-			duration: Sequelize.TIME,
+			duration: Sequelize.STRING(10),
 		});
 	},
 	

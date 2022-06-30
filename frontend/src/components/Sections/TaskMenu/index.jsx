@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { shape, number, func } from 'prop-types';
 import MenuHeader from './MenuHeader';
 import TaskTable from '../../Tables/TaskTable';
-import { EditTaskForm } from '../../Forms';
+import { EditTaskForm, NewTaskForm } from '../../Forms';
 import MenuFooter from './MenuFooter';
 import '../../../css/Calendar/TaskMenu.css';
 
@@ -15,6 +15,7 @@ function TaskMenu(props) {
 	const [menu, setMenu] = useState(INITIAL_MENU);
 	const { date, taskAmount, closeMenu } = props;
 
+	const goToNewTask = () => setMenu({ ...INITIAL_MENU, name: 'new' });
 	const goToTaskEdit = (task) => setMenu({ name: 'edit', task });
 	const goToTaskTable = () => setMenu({ ...INITIAL_MENU, name: 'table' });
 
@@ -22,6 +23,7 @@ function TaskMenu(props) {
 		<>
 			{ menu.name === 'table' && <TaskTable date={ date } goToTaskEdit={ goToTaskEdit } /> }
 			{ menu.name === 'edit' && <EditTaskForm task={ menu.task } goToTaskTable={ goToTaskTable } /> }
+			{ menu.name === 'new' && <NewTaskForm date={ date } goToTaskTable={ goToTaskTable } /> }
 		</>
 	);
 	
@@ -35,6 +37,7 @@ function TaskMenu(props) {
 			{ main }
 			<MenuFooter
 				goToTaskTable={ goToTaskTable }
+				goToNewTask={ goToNewTask }
 			/>
 		</section>
 	);

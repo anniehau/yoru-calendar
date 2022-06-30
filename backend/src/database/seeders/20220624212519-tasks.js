@@ -5,7 +5,7 @@ module.exports = {
 			title: 'Criar um app de calendário',
 			description: 'Preciso criar o app para apresentar em processos seletivos!',
 			datetime: new Date(),
-			duration: '01:00',
+			duration: '120m+',
 		}]);
 	},
 	

@@ -7,7 +7,7 @@ function Day(props) {
 	const { day, date, onClick } = props;
 	const { tasks: allTasks } = useContext(AppContext);
 	const [tasks, setTasks] = useState([]);
-	const taskAmount = tasks.length > 0 && tasks.length;
+	const taskAmount = tasks.length > 0 ? tasks.length : 0;
 
 	const isOff = date.format('MMMM') === day.format('MMMM') ? '' : 'calendar__dayOff';
 	const formattedDay = day.format('D');
@@ -27,7 +27,7 @@ function Day(props) {
 	}, []);
 
 	const renderTaskAmount = (
-		taskAmount &&
+		taskAmount > 0 &&
 		<span className="day__tasks">
 			{ taskAmount }
 		</span>

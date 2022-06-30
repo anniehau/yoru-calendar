@@ -21,7 +21,7 @@ export default class TaskModel {
 	public update = async (userId: number, id: number, task: ITask): Promise<DbResult> => {
 		const result = await Task.findOne({ where: { userId, id } });
 		if (!result) return null;
-		result.set(task);
+		result.update(task);
 		return result;
 	};
 

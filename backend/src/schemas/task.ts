@@ -8,8 +8,8 @@ export default class TaskSchema {
 
 	public taskBody = Joi.object({
 		title: Joi.string().required(),
-		description: Joi.string(),
+		description: Joi.string().allow('').optional(),
 		datetime: Joi.string().required(),
-		duration: Joi.string(),
+		duration: Joi.string().allow('').optional(),
 	});
 }
