@@ -10,6 +10,7 @@ function Day(props) {
 	const taskAmount = tasks.length > 0 ? tasks.length : 0;
 
 	const isOff = date.format('MMMM') === day.format('MMMM') ? '' : 'calendar__dayOff';
+	const canClick = isOff === '';
 	const formattedDay = day.format('D');
 
 	const verifyDayTasks = () => {
@@ -24,7 +25,7 @@ function Day(props) {
 
 	useEffect(() => {
 		verifyDayTasks();
-	}, []);
+	}, [day]);
 
 	const renderTaskAmount = (
 		taskAmount > 0 &&
@@ -36,7 +37,7 @@ function Day(props) {
 	return (
 		<div
 			className={ `calendar__day ${isOff}` }
-			onClick={ () => onClick(day, taskAmount) }
+			onClick={ () => { canClick && onClick(day, taskAmount); } }
 		>
 			{ renderTaskAmount }
 			{ formattedDay }
