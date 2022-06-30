@@ -9,7 +9,7 @@ function SubmitTaskButton(props) {
 			type="button"
 			onClick={ onClick }
 		>
-      Submit
+      Create
 		</button>
 	);
 }

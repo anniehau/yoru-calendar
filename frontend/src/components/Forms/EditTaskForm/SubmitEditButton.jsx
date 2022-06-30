@@ -9,7 +9,7 @@ function SubmitEditButton(props) {
 			type="button"
 			onClick={ onClick }
 		>
-      Submit
+      Edit
 		</button>
 	);
 }

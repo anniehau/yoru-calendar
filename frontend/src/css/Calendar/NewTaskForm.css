@@ -112,9 +112,9 @@
 }
 
 .form__newTask .newTask__submitTaskBtn {
-	background-color: #d8b02b;
+	background-color: #50af25;
 	color: white;
-	border: 0 solid #d8b02b;
+	border: 0 solid #50af25;
 	box-sizing: content-box;
 	border-radius: 11px;
 	height: 22px;
@@ -164,7 +164,7 @@
 } 
 
 .form__newTask .newTask__finishnewBtn:hover {
-	border: 2px solid #d8b02b;
+	border: 2px solid #50af25;
 	cursor: pointer;
 }
 
