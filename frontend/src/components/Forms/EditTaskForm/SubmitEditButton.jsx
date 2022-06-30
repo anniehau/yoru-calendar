@@ -1,22 +1,22 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-function ReturnButton(props) {
+function SubmitEditButton(props) {
 	const { onClick } = props;
 
 	return (
 		<button
-			className="editTask__returnBtn"
+			className="editTask__finishEditBtn"
 			type="button"
 			onClick={ onClick }
 		>
-      Return
+      Submit
 		</button>
 	);
 }
 
-ReturnButton.propTypes = {
+SubmitEditButton.propTypes = {
 	onClick: func.isRequired,
 };
 
-export default ReturnButton;
+export default SubmitEditButton;

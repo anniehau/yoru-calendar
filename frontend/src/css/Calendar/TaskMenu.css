@@ -22,6 +22,7 @@
 }
 
 .menu__footer {
+	background-color: white;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -33,7 +34,7 @@
 /* Elements */
 .menu__header .menu__title {
 	font-size: 14px;
-	margin-left: 11px;
+	margin-left: 30px;
 	font-weight: 600;
 }
 
@@ -46,6 +47,19 @@
 	box-sizing: content-box;
 	width: 22px;
 	border-radius: 25px;
+	transition: .1s;
+}
+
+.menu__footer .menu__tasksBtn {
+	background-color: #444cdb;
+	border: 0 solid #444cdb;
+	border-radius: 25px;
+	box-sizing: content-box;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	color: white;
+	margin-left: 6px;
+	height: 22px;
+	width: 44px;
 	transition: .1s;
 }
 
@@ -62,9 +76,29 @@
 	transition: .1s;
 }
 
+.menu__headerTasks {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #d8b02b;
+	color: white;
+	font-size: 10px;
+	width: 15px;
+	height: 15px;
+	border-radius: 10px;
+	position: absolute;
+	left: 10px;
+}
+
+
 /* Effects */
 .menu__closeBtn:hover {
 	border: 2px solid #db1919;
+	cursor: pointer;
+}
+
+.menu__tasksBtn:hover {
+	border: 2px solid #444cdb;
 	cursor: pointer;
 }
 

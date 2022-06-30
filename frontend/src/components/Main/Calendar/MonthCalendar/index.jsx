@@ -11,6 +11,7 @@ import '../../../../css/Calendar/MonthCalendar.css';
 const INITIAL_MENU = {
 	show: false,
 	date: {},
+	taskAmount: 0,
 };
 
 function MonthCalendar() {
@@ -23,7 +24,7 @@ function MonthCalendar() {
 	const currYear = () => date.format('YYYY');
 	const advanceMonth = () => setDate(date.clone().add(1, 'months'));
 	const retreatMonth = () => setDate(date.clone().subtract(1, 'months'));
-	const openMenu = (date) => setMenu({ show: true, date });
+	const openMenu = (date, taskAmount) => setMenu({ show: true, date, taskAmount });
 	const closeMenu = () => setMenu(INITIAL_MENU);
 
 
@@ -45,6 +46,7 @@ function MonthCalendar() {
 	const menuRender = (
 		<TaskMenu
 			date={ menu.date }
+			taskAmount={ menu.taskAmount }
 			closeMenu={ closeMenu }
 		/>
 	) ;

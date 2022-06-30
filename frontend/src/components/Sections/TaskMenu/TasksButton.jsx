@@ -1,22 +1,20 @@
 import React from 'react';
 import { func } from 'prop-types';
 
-function FinishEditButton(props) {
+function TasksButton(props) {
 	const { onClick } = props;
-
 	return (
 		<button
-			className="editTask__finishEditBtn"
-			type="button"
+			className="menu__tasksBtn"
 			onClick={ onClick }
 		>
-      Finish
+			Tasks
 		</button>
 	);
 }
 
-FinishEditButton.propTypes = {
+TasksButton.propTypes = {
 	onClick: func.isRequired,
 };
 
-export default FinishEditButton;
+export default TasksButton;

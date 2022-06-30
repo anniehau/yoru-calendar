@@ -27,6 +27,7 @@ function Day(props) {
 	}, []);
 
 	const renderTaskAmount = (
+		taskAmount &&
 		<span className="day__tasks">
 			{ taskAmount }
 		</span>
@@ -35,9 +36,9 @@ function Day(props) {
 	return (
 		<div
 			className={ `calendar__day ${isOff}` }
-			onClick={ () => onClick(day) }
+			onClick={ () => onClick(day, taskAmount) }
 		>
-			{ taskAmount && renderTaskAmount }
+			{ renderTaskAmount }
 			{ formattedDay }
 		</div>
 	);

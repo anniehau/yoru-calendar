@@ -5,8 +5,7 @@ import TitleInput from './TitleInput';
 import DescriptionTextArea from './DescriptionTextArea';
 import DatetimeInput from './DatetimeInput';
 import DurationSelect from './DurationSelect';
-import FinishEditButton from './FinishEditButton';
-import ReturnButton from './ReturnButton';
+import SubmitEditButton from './SubmitEditButton';
 import { format } from '../../../helpers';
 import '../../../css/Calendar/EditTaskForm.css';
 
@@ -18,7 +17,7 @@ const INITIAL_FORM = {
 };
 
 function EditTaskForm(props) {
-	const { task, goToTaskTable } = props;
+	const { task } = props;
 
 	// States
 	const [form, setForm] = useState(INITIAL_FORM);
@@ -52,10 +51,7 @@ function EditTaskForm(props) {
 			<DescriptionTextArea description={ form.description } onChange={ setFormValue } />
 			<DatetimeInput datetime={ form.datetime } onChange={ setFormValue } />
 			<DurationSelect duration={ form.duration } onChange={ setFormValue } />
-			<div className="editTask__buttons">
-				<FinishEditButton />
-				<ReturnButton onClick={ goToTaskTable } />
-			</div>
+			<SubmitEditButton />
 		</form>
 	);
 }
