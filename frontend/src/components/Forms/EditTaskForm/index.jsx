@@ -49,7 +49,7 @@ function EditTaskForm(props) {
 		});
 	};
 
-	// Submits edit to database with new ata
+	// Submits edit to database with new values
 	const submitEditTask = async () => {
 		const token = storage.user.token.get();
 		const payload = create.payload.to.put.task({ token, body: form });

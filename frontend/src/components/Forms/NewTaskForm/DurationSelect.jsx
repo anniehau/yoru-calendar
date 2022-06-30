@@ -14,7 +14,7 @@ function DurationSelect(props) {
 	);
 
 	return (
-		<div className="editTask__duration">
+		<div className="newTask__duration">
 			<label className="label__name">
 				<span className="content__name">Duration</span>
 				{' '}

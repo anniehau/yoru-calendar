@@ -1,11 +1,11 @@
 /* Blocks */
-.form__editTask {
+.form__newTask {
 	display: flex;
 	flex-direction: column;
 	margin: 6px 18px 0 11px;
 }
 
-.form__editTask .editTask__title {
+.form__newTask .newTask__title {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 10px;
@@ -13,14 +13,14 @@
 	overflow: hidden;
 }
 
-.form__editTask .editTask__description {
+.form__newTask .newTask__description {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 10px;
 	margin-right: 12px;
 }
 
-.form__editTask .editTask__datetime {
+.form__newTask .newTask__datetime {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 10px;
@@ -28,19 +28,19 @@
 	overflow: hidden;
 }
 
-.form__editTask .editTask__duration {
+.form__newTask .newTask__duration {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 16px;
 }
 
 /* Elements */
-.form__editTask .editTask__pageTitle {
+.form__newTask .newTask__pageTitle {
 	margin: 0;
 	margin-bottom: 10px;
 }
 
-.form__editTask .editTask__title input {
+.form__newTask .newTask__title input {
 	padding-top: 11px;
 	height: 33px;
 	width: 100%;
@@ -48,7 +48,7 @@
 	outline: none;
 }
 
-.form__editTask .editTask__title label {
+.form__newTask .newTask__title label {
 	position: absolute;
 	bottom: 0px;
 	left: 0%;
@@ -58,7 +58,7 @@
 	border-bottom: 1px solid black;
 }
 
-.form__editTask .editTask__title label:after {
+.form__newTask .newTask__title label:after {
 	content: "";
 	position: absolute;
 	height: 100%;
@@ -70,14 +70,14 @@
 	pointer-events: none;
 }
 
-.editTask__title .content__name {
+.newTask__title .content__name {
 	position: absolute;
 	bottom: 5px;
 	left: 0px;
 	transition: all 0.3s ease;
 }
 
-.form__editTask .editTask__description textarea {
+.form__newTask .newTask__description textarea {
 	padding: 5px;
 	height: 44px;
 	width: 100%;
@@ -90,7 +90,7 @@
 	transition: .3s;
 }
 
-.form__editTask .editTask__datetime input {
+.form__newTask .newTask__datetime input {
 	height: 22px;
 	width: 132px;
 	border: none;
@@ -100,7 +100,7 @@
 	transition: .3s;
 }
 
-.form__editTask .editTask__duration select {
+.form__newTask .newTask__duration select {
 	height: 22px;
 	width: 100px;
 	border: 1px solid #ccc;
@@ -111,7 +111,7 @@
 	font-size: 10px;
 }
 
-.form__editTask .editTask__finishEditBtn {
+.form__newTask .newTask__submitTaskBtn {
 	background-color: #d8b02b;
 	color: white;
 	border: 0 solid #d8b02b;
@@ -123,7 +123,7 @@
 	margin-right: 8px;
 }
 
-.form__editTask .editTask__returnBtn {
+.form__newTask .newTask__returnBtn {
 	background-color: #444cdb;
 	color: white;
 	border: 0 solid #444cdb;
@@ -135,40 +135,40 @@
 }
 
 /* Effects */
-.form__editTask input:focus + .label__name .content__name,
-.form__editTask input:valid + .label__name .content__name {
+.form__newTask input:focus + .label__name .content__name,
+.form__newTask input:valid + .label__name .content__name {
 	transform: translateY(-110%);
 }
 
-.form__editTask input:focus + .label__name:after,
-.form__editTask input:valid + .label__name:after {
+.form__newTask input:focus + .label__name:after,
+.form__newTask input:valid + .label__name:after {
 	transform: translateX(0%);
 }
 
-.form__editTask .editTask__description textarea:hover,
-.form__editTask .editTask__description textarea:focus,
-.form__editTask .editTask__description textarea:valid {
+.form__newTask .newTask__description textarea:hover,
+.form__newTask .newTask__description textarea:focus,
+.form__newTask .newTask__description textarea:valid {
 	-moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.03);
 	-webkit-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.03);
 	box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.03);
 }
 
-.form__editTask .editTask__datetime input:hover,
-.form__editTask .editTask__datetime input:valid {
+.form__newTask .newTask__datetime input:hover,
+.form__newTask .newTask__datetime input:valid {
 	border-bottom: 1px solid black;
 	width: 150px;
 }
 
-.form__editTask .editTask__duration select:hover {
+.form__newTask .newTask__duration select:hover {
 	cursor: pointer;
 } 
 
-.form__editTask .editTask__finishEditBtn:hover {
+.form__newTask .newTask__finishnewBtn:hover {
 	border: 2px solid #d8b02b;
 	cursor: pointer;
 }
 
-.form__editTask .editTask__returnBtn:hover {
+.form__newTask .newTask__returnBtn:hover {
 	border: 2px solid #444cdb;
 	cursor: pointer;
 }

@@ -5,7 +5,7 @@ function SubmitEditButton(props) {
 	const { onClick } = props;
 	return (
 		<button
-			className="editTask__finishEditBtn"
+			className="newTask__finishEditBtn"
 			type="button"
 			onClick={ onClick }
 		>

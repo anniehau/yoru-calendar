@@ -9,9 +9,7 @@ function DatetimeInput(props) {
 	const options = {
 		mode: 'single',
 		enableTime: true,
-		altInput: true,
-		altFormat: 'Y-m-d, H:i K',
-		dateFormat: 'Z',
+		dateFormat: 'Y-m-d, H:i K'
 	};
 
 	return (

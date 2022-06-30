@@ -37,7 +37,8 @@ function NewTaskForm(props) {
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
 	};
-	// Submits edit to database with new ata
+
+	// Submits task to database
 	const submitNewTask = async () => {
 		const token = storage.user.token.get();
 		const payload = create.payload.to.post.task({ token, body: form });
@@ -59,7 +60,7 @@ function NewTaskForm(props) {
 	useEffect(() => prepareForm(), []);
 
 	return (
-		<form className="form__editTask">
+		<form className="form__newTask">
 			<Title />
 			<TitleInput title={ form.title } onChange={ setFormValue } />
 			<DescriptionTextArea description={ form.description } onChange={ setFormValue } />

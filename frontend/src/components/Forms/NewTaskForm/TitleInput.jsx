@@ -5,7 +5,7 @@ function TitleInput(props) {
 	const { title, onChange } = props;
 
 	return (
-		<div className="editTask__title">
+		<div className="newTask__title">
 			<input
 				type="text"
 				value={ title }

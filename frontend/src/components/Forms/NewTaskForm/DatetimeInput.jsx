@@ -5,17 +5,22 @@ import 'flatpickr/dist/themes/material_green.css';
 
 function DatetimeInput(props) {
 	const { datetime, onChange } = props;
-	console.log(datetime);
+	
+	const options = {
+		mode: 'single',
+		enableTime: true,
+		dateFormat: 'Y-m-d, H:i K'
+	};
 
 	return (
-		<div className="editTask__datetime">
+		<div className="newTask__datetime">
 			<label className="label__name">
 				<span className="content__name">Date & Time</span>
 			</label>
 			<Flatpickr
 				date-enable-time="true"
 				value={ datetime }
-				options={{ mode: 'single', enableTime: true, enableSeconds: true, dateFormat: 'Y-m-d, H:i K' }}
+				options={ options }
 				onChange={ (e) => onChange(e, 'datetime') }
 			/>
 		</div>

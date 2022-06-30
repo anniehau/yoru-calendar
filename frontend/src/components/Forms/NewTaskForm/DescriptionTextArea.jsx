@@ -5,7 +5,7 @@ function DescriptionTextArea(props) {
 	const { description, onChange } = props;
 
 	return (
-		<div className="editTask__description">
+		<div className="newTask__description">
 			<label className="label__name">
 				<span className="content__name">Description</span>
 				{' '}
