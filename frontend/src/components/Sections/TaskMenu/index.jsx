@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { shape, number, func } from 'prop-types';
+import { shape, func } from 'prop-types';
 import MenuHeader from './MenuHeader';
 import TaskTable from '../../Tables/TaskTable';
 import { EditTaskForm, NewTaskForm } from '../../Forms';
@@ -14,7 +14,7 @@ const INITIAL_MENU = {
 
 function TaskMenu(props) {
 	const [menu, setMenu] = useState(INITIAL_MENU);
-	const { date, taskAmount, closeMenu } = props;
+	const { date, closeMenu } = props;
 
 	const goToTaskTable = () => setMenu({ ...INITIAL_MENU, name: 'table' });
 	const goToTaskEdit = (e, task) => {
@@ -41,7 +41,6 @@ function TaskMenu(props) {
 		<section className="task__menu">
 			<MenuHeader
 				date={ date }
-				taskAmount={ taskAmount }
 				closeMenu={ closeMenu }
 			/>
 			{ main }
@@ -55,7 +54,6 @@ function TaskMenu(props) {
 
 TaskMenu.propTypes = {
 	date: shape({}).isRequired,
-	taskAmount: number.isRequired,
 	closeMenu: func.isRequired,
 };
 
