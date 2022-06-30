@@ -17,7 +17,7 @@ const INITIAL_MENU = {
 function MonthCalendar() {
 	const [menu, setMenu] = useState(INITIAL_MENU);
 	const [calendar, setCalendar] = useState([]);
-	const [date, setDate] = useState(moment().startOf('month'));
+	const [date, setDate] = useState(moment.utc().startOf('month'));
 	const { state } = useContext(AppContext);
 
 	const currMonthName = () => date.format('MMMM');

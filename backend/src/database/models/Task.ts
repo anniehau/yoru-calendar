@@ -19,7 +19,7 @@ Task.init({
 	userId: DataTypes.INTEGER,
 	title: DataTypes.STRING(50),
 	description: DataTypes.STRING,
-	datetime: DataTypes.NOW,
+	datetime: DataTypes.DATE,
 	duration: DataTypes.TIME,
 }, {
 	sequelize: db,

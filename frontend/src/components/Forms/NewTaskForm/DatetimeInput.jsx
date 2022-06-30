@@ -5,6 +5,7 @@ import 'flatpickr/dist/themes/material_green.css';
 
 function DatetimeInput(props) {
 	const { datetime, onChange } = props;
+	console.log(datetime);
 
 	return (
 		<div className="editTask__datetime">

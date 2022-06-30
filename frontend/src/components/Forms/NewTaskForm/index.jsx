@@ -33,7 +33,7 @@ function NewTaskForm(props) {
 
 	// Sets datetime value to form state
 	const setDatetime = (event) => {
-		const datetime = format.task.datetime(event[0]);
+		const datetime = format.task.datetime.normal(event[0]);
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
 	};
@@ -52,11 +52,11 @@ function NewTaskForm(props) {
 		if (!date) return false;
 		setForm({
 			...INITIAL_FORM,
-			datetime: format.task.datetime(date.format()),
+			datetime: format.task.datetime.behind(date.format()),
 		});
 	};
 
-	useEffect(() => prepareForm, [date]);
+	useEffect(() => prepareForm(), []);
 
 	return (
 		<form className="form__editTask">
