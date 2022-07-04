@@ -9,8 +9,8 @@ function DatetimeInput(props) {
 	const options = {
 		mode: 'single',
 		enableTime: true,
-		time_24hr: true,
-		dateFormat: 'Y-m-d, H:i'
+		altInput: true,
+		altFormat: 'F j, Y (h:S K)'
 	};
 
 	return (
@@ -22,7 +22,7 @@ function DatetimeInput(props) {
 				date-enable-time="true"
 				value={ datetime }
 				options={ options }
-				onChange={ (e) => onChange(e, 'datetime') }
+				onChange={ onChange }
 			/>
 		</div>
 	);

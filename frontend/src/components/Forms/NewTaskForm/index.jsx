@@ -8,12 +8,13 @@ import DurationSelect from './DurationSelect';
 import SubmitTaskButton from './SubmitTaskButton';
 import { format, create, storage } from '../../../helpers';
 import AppContext from '../../../context/AppContext';
+import moment from 'moment';
 import '../../../css/Calendar/NewTaskForm.css';
 
 const INITIAL_FORM = {
 	title: '',
 	description: '',
-	datetime: new Date(),
+	datetime: '',
 	duration: '',
 };
 
@@ -32,8 +33,8 @@ function NewTaskForm(props) {
 	};
 
 	// Sets datetime value to form state
-	const setDatetime = (event) => {
-		const datetime = new Date(event[0]);
+	const setDatetime = (value) => {
+		const datetime = format.datetime.str(moment(value[0]));
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
 	};
@@ -53,10 +54,7 @@ function NewTaskForm(props) {
 		const token = storage.user.token.get();
 		const payload = create.payload.to.post.task({
 			token,
-			body: {
-				...form,
-				datetime: format.task.datetime.normal(form.datetime),
-			}
+			body: form
 		});
 		const result = await create.fetch.includes.body({ url: 'tasks', payload });
 		if (!result.success) console.log(result.data);

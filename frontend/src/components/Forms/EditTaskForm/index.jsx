@@ -8,6 +8,7 @@ import DurationSelect from './DurationSelect';
 import SubmitEditButton from './SubmitEditButton';
 import { format, create, storage } from '../../../helpers';
 import AppContext from '../../../context/AppContext';
+import moment from 'moment';
 import '../../../css/Calendar/EditTaskForm.css';
 
 const INITIAL_FORM = {
@@ -32,8 +33,8 @@ function EditTaskForm(props) {
 	};
 
 	// Sets datetime value to form state
-	const setDatetime = (event) => {
-		const datetime = new Date(event[0]);
+	const setDatetime = (value) => {
+		const datetime = format.datetime.str(moment(value[0]));
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
 	};
@@ -41,10 +42,11 @@ function EditTaskForm(props) {
 	// Sets form based on task currently being edited
 	const prepareForm = () => {
 		if (!task) return false;
+		const datetime = format.datetime.str(moment(task.datetime));
 		setForm({
 			title: task.title,
 			description: task.description,
-			datetime: new Date(task.datetime),
+			datetime: datetime,
 			duration: task.duration,
 		});
 	};
@@ -54,10 +56,7 @@ function EditTaskForm(props) {
 		const token = storage.user.token.get();
 		const payload = create.payload.to.put.task({
 			token,
-			body: {
-				...form,
-				datetime: format.task.datetime.normal(form.datetime)
-			}
+			body: form
 		});
 		const result = await create.fetch.includes.params({ url: 'tasks', payload, params: task.id });
 		if (!result.success) console.log(result.data);
