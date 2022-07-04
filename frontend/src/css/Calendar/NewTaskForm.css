@@ -92,7 +92,7 @@
 
 .form__newTask .newTask__datetime input {
 	height: 22px;
-	width: 132px;
+	width: 150px;
 	border: none;
 	outline: none;
 	border-bottom: 1px solid black;
@@ -156,7 +156,8 @@
 .form__newTask .newTask__datetime input:hover,
 .form__newTask .newTask__datetime input:valid {
 	border-bottom: 1px solid black;
-	width: 150px;
+	width: 175px;
+	cursor: pointer;
 }
 
 .form__newTask .newTask__duration select:hover {
