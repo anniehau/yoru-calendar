@@ -163,7 +163,7 @@
 	cursor: pointer;
 } 
 
-.form__newTask .newTask__finishnewBtn:hover {
+.form__newTask .newTask__submitTaskBtn:hover {
 	border: 2px solid #50af25;
 	cursor: pointer;
 }

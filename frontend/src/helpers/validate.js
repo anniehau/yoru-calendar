@@ -46,6 +46,15 @@ const register = {
 	}
 };
 
-const validate = { login, register };
+const day = {
+	month: (day, date) => {
+		const dayMonth = day.format('MMMM');
+		const dateMonth = date.format('MMMM');
+		if (dayMonth !== dateMonth) return false;
+		return true;
+	},
+};
+
+const validate = { login, register, day };
 
 export default validate;

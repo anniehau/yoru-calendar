@@ -13,7 +13,7 @@ import '../../../css/Calendar/NewTaskForm.css';
 const INITIAL_FORM = {
 	title: '',
 	description: '',
-	datetime: '',
+	datetime: new Date(),
 	duration: '',
 };
 
@@ -41,8 +41,7 @@ function NewTaskForm(props) {
 	// Sets datetime to current datetime
 	const prepareForm = () => {
 		if (!date) return false;
-		const formatted = date.format().replace('Z', '');
-		const datetime = new Date(formatted);
+		const datetime = format.datetime.str(date);
 		setForm({
 			...INITIAL_FORM,
 			datetime,

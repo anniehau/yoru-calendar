@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { shape, func } from 'prop-types';
 import verifyTaskAmount from '../../../../hooks/verifyTaskAmount';
+import { validate } from '../../../../helpers';
+
+const INITIAL_STATE = {
+	monthIsOff: '',
+	canClick: true,
+	formattedDay: '',
+};
 
 function Day(props) {
 	const { day, date, onClick } = props;
+	const [dayState, setDayState] = useState(INITIAL_STATE);
 	const taskAmount = verifyTaskAmount(day);
 
-	const isOff = date.format('MMMM') === day.format('MMMM') ? '' : 'calendar__dayOff';
-	const canClick = isOff === '';
-	const formattedDay = day.format('D');
+	const getDayData = () => {
+		const dayMonthIsCorrectMonth = validate.day.month(day, date);
+		setDayState({
+			monthIsOff: !dayMonthIsCorrectMonth && 'calendar__dayOff', 
+			canClick: dayMonthIsCorrectMonth,
+			formattedDay: day.format('D')
+		});
+	};
+
+	useEffect(() => getDayData(), [day]);
 
 	const renderTaskAmount = (
 		taskAmount > 0 &&
@@ -19,11 +34,11 @@ function Day(props) {
 
 	return (
 		<div
-			className={ `calendar__day ${isOff}` }
-			onClick={ () => { canClick && onClick(day); } }
+			className={ `calendar__day ${dayState.monthIsOff}` }
+			onClick={ () => { dayState.canClick && onClick(day); } }
 		>
 			{ renderTaskAmount }
-			{ formattedDay }
+			{ dayState.formattedDay }
 		</div>
 	);
 }

@@ -19,7 +19,7 @@ function verifyTaskAmount(day) {
 	
 	useEffect(() => {
 		verifyDayTasks();
-	}, [tasks]);
+	}, [tasks, day]);
 	
 	return taskAmount;
 }
