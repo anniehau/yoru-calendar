@@ -7,7 +7,6 @@ const datetime = {
 		const dateString = date.format('YYYY-MM-DD');
 		const timeString = date.format('HH:mm:ss');
 		const datetimeString = `${dateString}T${timeString}`;
-		console.log(datetimeString);
 		return datetimeString;
 	},
 };

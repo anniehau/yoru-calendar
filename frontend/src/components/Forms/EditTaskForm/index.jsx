@@ -52,11 +52,12 @@ function EditTaskForm(props) {
 	};
 
 	// Submits edit to database with new values
-	const submitEditTask = async () => {
+	const submitEdittedTask = async () => {
 		const token = storage.user.token.get();
+		const datetime = format.datetime.str(moment(form.datetime).utc());
 		const payload = create.payload.to.put.task({
 			token,
-			body: form
+			body: { ...form, datetime }
 		});
 		const result = await create.fetch.includes.params({ url: 'tasks', payload, params: task.id });
 		if (!result.success) console.log(result.data);
@@ -75,7 +76,7 @@ function EditTaskForm(props) {
 			<DescriptionTextArea description={ form.description } onChange={ setFormValue } />
 			<DatetimeInput datetime={ form.datetime } onChange={ setDatetime } />
 			<DurationSelect duration={ form.duration } onChange={ setFormValue } />
-			<SubmitEditButton onClick={ submitEditTask } />
+			<SubmitEditButton onClick={ submitEdittedTask } />
 		</form>
 	);
 }

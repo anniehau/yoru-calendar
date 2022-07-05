@@ -52,9 +52,10 @@ function NewTaskForm(props) {
 	// Submits task to database
 	const submitNewTask = async () => {
 		const token = storage.user.token.get();
+		const datetime = format.datetime.str(moment(form.datetime).utc());
 		const payload = create.payload.to.post.task({
 			token,
-			body: form
+			body: { ...form, datetime }
 		});
 		const result = await create.fetch.includes.body({ url: 'tasks', payload });
 		if (!result.success) console.log(result.data);
