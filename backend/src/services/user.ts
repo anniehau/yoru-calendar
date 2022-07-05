@@ -22,7 +22,7 @@ export default class UserService {
 
 	public login = async (login: LoginBody) => {
 		const user = await this.model.getOne(login.email);
-		if (!user) return null;
+		if (!user) throw new NotFound('User not found!');
 
 		const passwordIsValid = Md5.hashStr(login.password) === user.password;
 		if (!passwordIsValid) throw new Unauthorized('Your login data is incorrect!');

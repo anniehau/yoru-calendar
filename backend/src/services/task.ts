@@ -29,7 +29,7 @@ export default class TaskService {
 
 	public remove = async (userId: number, id: number) => {
 		const result = await this.model.remove(userId, id);
-		if (result === 0) return null;
+		if (result === 0) throw new NotFound('Task not found!');
 		return result;
 	};
 }

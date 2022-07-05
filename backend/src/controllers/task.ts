@@ -9,7 +9,6 @@ export default class TaskController {
 		if (!req.user) throw new Error();
 
 		const userId = Number(req.user.id);
-
 		const result = await this.service.getAllFromUser(userId);
 		return res.status(200).json(result);
 	};
@@ -21,7 +20,6 @@ export default class TaskController {
 		const { title } = req.body;
 	
 		const result = await this.service.getByTitle(userId, title);
-		if (!result) return res.status(404).json({ error: 'Task not found!' });
 		return res.status(200).json(result);
 	};
 
@@ -33,7 +31,6 @@ export default class TaskController {
 		const task = req.body;
 
 		const result = await this.service.update(userId, id, task);
-		if (!result) return res.status(404).json({ error: 'Task not found!' });
 		return res.status(200).json(result);
 	};
 
@@ -54,7 +51,6 @@ export default class TaskController {
 		const id = Number(req.params.id);
 
 		const result = await this.service.remove(userId, id);
-		if (!result) return res.status(404).json({ error: 'Task not found!' });
 		return res.status(200).json({ rowsDeleted: result });
 	};
 }

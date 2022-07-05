@@ -32,6 +32,7 @@ const includes = {
 		const result = await fetch(`http://localhost:3001${route[url]}`, payload)
 			.then((data) => data.json())
 			.catch(handleError);
+		console.log(result);
 
 		if (result.error) return { success: false, data: result.error };
 
