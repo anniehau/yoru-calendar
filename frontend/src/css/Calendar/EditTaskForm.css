@@ -34,6 +34,11 @@
 	margin-bottom: 16px;
 }
 
+.editTask__submitDiv {
+	display: flex;
+	align-items: center;
+}
+
 /* Elements */
 .form__editTask .editTask__pageTitle {
 	margin: 0;
@@ -132,6 +137,11 @@
 	height: 22px;
 	width: 90px;
 	transition: .1s;
+}
+
+.editTask__error {
+	color: #e21f39;
+	font-size: 14px;
 }
 
 /* Effects */

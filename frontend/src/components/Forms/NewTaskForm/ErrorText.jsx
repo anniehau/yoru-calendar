@@ -6,7 +6,7 @@ function ErrorText(props) {
 
 	return (
 		error.length > 0 &&
-		<div className="login__error">* { error }</div>
+		<div className="newTask__error">* { error }</div>
 	);
 }
 

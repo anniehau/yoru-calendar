@@ -1,14 +1,22 @@
+// General
 import React, { useContext, useEffect, useState } from 'react';
 import { shape, func } from 'prop-types';
+
+// Components
 import Title from './Title';
 import TitleInput from './TitleInput';
 import DescriptionTextArea from './DescriptionTextArea';
 import DatetimeInput from './DatetimeInput';
 import DurationSelect from './DurationSelect';
 import SubmitTaskButton from './SubmitTaskButton';
+import ErrorText from './ErrorText';
+
+// Other
 import { format, create, storage } from '../../../helpers';
 import AppContext from '../../../context/AppContext';
 import moment from 'moment';
+
+// CSS
 import '../../../css/Calendar/NewTaskForm.css';
 
 const INITIAL_FORM = {
@@ -24,12 +32,14 @@ function NewTaskForm(props) {
 
 	// States
 	const [form, setForm] = useState(INITIAL_FORM);
+	const [error, setError] = useState('');
 
 	// Sets form values in state. Requires field to be "username" or "password"
 	// to change the respsective fields.
 	const setFormValue = (event, field) => {
 		const { value } = event.target;
 		setForm((s) => ({ ...s, [field]: value }));
+		setError('');
 	};
 
 	// Sets datetime value to form state
@@ -37,6 +47,7 @@ function NewTaskForm(props) {
 		const datetime = format.datetime.str(moment(value[0]));
 		if (!datetime) return false;
 		setForm((s) => ({ ...s, datetime }));
+		setError('');
 	};
 	
 	// Sets datetime to current datetime
@@ -58,7 +69,7 @@ function NewTaskForm(props) {
 			body: { ...form, datetime }
 		});
 		const result = await create.fetch.includes.body({ url: 'tasks', payload });
-		if (!result.success) console.log(result.data);
+		if (!result.success) return setError(result.data);
 		reloadApi();
 		goToTaskTable();
 	};
@@ -72,7 +83,10 @@ function NewTaskForm(props) {
 			<DescriptionTextArea description={ form.description } onChange={ setFormValue } />
 			<DatetimeInput datetime={ form.datetime } onChange={ setDatetime } />
 			<DurationSelect duration={ form.duration } onChange={ setFormValue } />
-			<SubmitTaskButton onClick={ submitNewTask } />
+			<div className="newTask__submitDiv">
+				<SubmitTaskButton onClick={ submitNewTask } />
+				<ErrorText error={ error } />
+			</div>
 		</form>
 	);
 }

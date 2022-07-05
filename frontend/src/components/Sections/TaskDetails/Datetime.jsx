@@ -19,7 +19,7 @@ function Datetime(props) {
 		const weekday = weeks[value.day()].name;
 		const date = value.clone().format('DD-MM-YYYY');
 		const formattedDate = `${weekday}, ${date}`;
-		const time = value.clone().format('HH:MM');
+		const time = value.clone().format('HH:mm');
 
 		setData({ date: formattedDate, time });
 	};

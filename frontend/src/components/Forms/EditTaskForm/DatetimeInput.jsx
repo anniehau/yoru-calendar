@@ -10,7 +10,7 @@ function DatetimeInput(props) {
 		mode: 'single',
 		enableTime: true,
 		altInput: true,
-		altFormat: 'F j, Y (h:S K)'
+		altFormat: 'F j, Y (h:i K)'
 	};
 
 	return (

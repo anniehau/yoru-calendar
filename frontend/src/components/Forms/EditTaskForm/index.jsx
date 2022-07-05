@@ -1,14 +1,22 @@
+// General
 import React, { useContext, useEffect, useState } from 'react';
 import { shape, func } from 'prop-types';
+
+// Components
 import Title from './Title';
 import TitleInput from './TitleInput';
 import DescriptionTextArea from './DescriptionTextArea';
 import DatetimeInput from './DatetimeInput';
 import DurationSelect from './DurationSelect';
 import SubmitEditButton from './SubmitEditButton';
+import ErrorText from './ErrorText';
+
+// Other
 import { format, create, storage } from '../../../helpers';
 import AppContext from '../../../context/AppContext';
 import moment from 'moment';
+
+// CSS
 import '../../../css/Calendar/EditTaskForm.css';
 
 const INITIAL_FORM = {
@@ -24,19 +32,23 @@ function EditTaskForm(props) {
 
 	// States
 	const [form, setForm] = useState(INITIAL_FORM);
+	const [error, setError] = useState('');
 
 	// Sets form values in state. Requires field to be "username" or "password"
 	// to change the respsective fields.
 	const setFormValue = (event, field) => {
 		const { value } = event.target;
 		setForm((s) => ({ ...s, [field]: value }));
+		setError('');
 	};
 
 	// Sets datetime value to form state
 	const setDatetime = (value) => {
 		const datetime = format.datetime.str(moment(value[0]));
 		if (!datetime) return false;
+		console.log(datetime);
 		setForm((s) => ({ ...s, datetime }));
+		setError('');
 	};
 
 	// Sets form based on task currently being edited
@@ -60,7 +72,7 @@ function EditTaskForm(props) {
 			body: { ...form, datetime }
 		});
 		const result = await create.fetch.includes.params({ url: 'tasks', payload, params: task.id });
-		if (!result.success) console.log(result.data);
+		if (!result.success) return setError(result.data);
 		reloadApi();
 		goToTaskTable();
 	};
@@ -76,7 +88,10 @@ function EditTaskForm(props) {
 			<DescriptionTextArea description={ form.description } onChange={ setFormValue } />
 			<DatetimeInput datetime={ form.datetime } onChange={ setDatetime } />
 			<DurationSelect duration={ form.duration } onChange={ setFormValue } />
-			<SubmitEditButton onClick={ submitEdittedTask } />
+			<div className="editTask__submitDiv">
+				<SubmitEditButton onClick={ submitEdittedTask } />
+				<ErrorText error={ error } />
+			</div>
 		</form>
 	);
 }
