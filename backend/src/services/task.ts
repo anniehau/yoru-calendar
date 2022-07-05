@@ -1,24 +1,24 @@
 import TaskModel from '../models/task';
 import { ITask } from '../interfaces/task';
+import { NotFound } from '../errors';
 
 export default class TaskService {
 	constructor(private model = new TaskModel()) { }
 
 	public getAllFromUser = async (userId: number) => {
 		const result = await this.model.getAllFromUser(userId);
-		if (!result) return null;
 		return result;
 	};
 
 	public getByTitle = async (userId: number, title: string) => {
 		const result = await this.model.getByTitle(userId, title);
-		if (!result) return null;
+		if (!result) throw new NotFound('Task not found!');
 		return result;
 	};
 
 	public update = async (userId: number, id: number, task: ITask) => {
 		const result = await this.model.update(userId, id, task);
-		if (!result) return null;
+		if (!result) throw new NotFound('Task not found!');
 		return result;
 	};
 

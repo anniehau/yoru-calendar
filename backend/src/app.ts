@@ -1,5 +1,6 @@
 import express, { Express, RequestHandler } from 'express';
 import router from './routers';
+import errorHandlingMiddleware from './middlewares/errorHandlingMiddleware';
 
 export default class App {
 	public app: Express;
@@ -20,6 +21,7 @@ export default class App {
 		this.app.use(express.json()); // Starts up body parser middleware
 		this.app.use(accessControl);
 		this.app.use('/', router);
+		this.app.use(errorHandlingMiddleware);
 	}
 
 	public start(PORT: number): void {
