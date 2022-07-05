@@ -52,16 +52,19 @@ function TaskMenu(props) {
 	);
 	
 	return (
-		<section className="task__menu">
-			<MenuHeader
-				date={ date }
-				closeMenu={ closeMenu }
-			/>
-			{ main }
-			<MenuFooter
-				goToTaskTable={ goToTaskTable }
-				goToNewTask={ goToNewTask }
-			/>
+		<section>
+			<div className="task__menu">
+				<MenuHeader
+					date={ date }
+					closeMenu={ closeMenu }
+				/>
+				{ main }
+				<MenuFooter
+					goToTaskTable={ goToTaskTable }
+					goToNewTask={ goToNewTask }
+				/>
+			</div>
+			<div className="menu__background" />
 		</section>
 	);
 }
