@@ -6,11 +6,12 @@ import DateText from './DateText';
 import TimeText from './TimeText';
 import EditTaskButton from './EditTaskButton';
 import DeleteTaskButton from './DeleteTaskButton';
+import moment from 'moment';
 
 function TableItem(props) {
 	const { task, goToTaskEdit, onClick } = props;
-	const date = task.datetime.substring(0, task.datetime.indexOf('T')).replaceAll('-', '/');
-	const time = new Date(task.datetime).toLocaleTimeString();
+	const date = moment(task.datetime).format('YYYY/MM/DD');
+	const time = moment(task.datetime).format('hh:mm A');
 	return (
 		<tr onClick={ () => onClick(task) }>
 			<TitleText title={ task.title } />

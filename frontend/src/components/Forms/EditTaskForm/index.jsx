@@ -54,7 +54,7 @@ function EditTaskForm(props) {
 	// Submits edit to database with new values
 	const submitEdittedTask = async () => {
 		const token = storage.user.token.get();
-		const datetime = format.datetime.str(moment(form.datetime).utc());
+		const datetime = `${format.datetime.str(moment(form.datetime).utc())}Z`;
 		const payload = create.payload.to.put.task({
 			token,
 			body: { ...form, datetime }
