@@ -24,7 +24,7 @@ function LoginForm() {
 		return true;
 	};
   
-	// Sets form values in state. Requires field to be "username" or "password"
+	// Sets form values in state. Requires field to be "email" or "password"
 	// to change the respsective fields.
 	const setFormValue = (event, field) => {
 		const { value } = event.target;
