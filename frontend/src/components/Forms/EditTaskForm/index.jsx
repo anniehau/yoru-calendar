@@ -46,7 +46,6 @@ function EditTaskForm(props) {
 	const setDatetime = (value) => {
 		const datetime = format.datetime.str(moment(value[0]));
 		if (!datetime) return false;
-		console.log(datetime);
 		setForm((s) => ({ ...s, datetime }));
 		setError('');
 	};
