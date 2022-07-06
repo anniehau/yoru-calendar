@@ -41,7 +41,8 @@ function RegisterForm() {
 		if (!formIsValid) return false;
 		const payload = create.payload.to.register(form);
 		const result = await create.fetch.includes.body({ url: 'register', payload });
-		if (!result.success) return setError(result.data.error);
+		console.log(result);
+		if (!result.success) return setError(result.data);
 		const user = format.user.obj(result.data);
 		storage.user.set(user);
 		reloadApi();

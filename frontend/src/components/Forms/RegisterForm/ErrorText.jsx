@@ -5,7 +5,8 @@ function ErrorText(props) {
 	const { error } = props;
 
 	return (
-		error.length > 0 && <div className="register__error">* { error }</div>
+		error.length > 0 &&
+		<div className="register__error">* { error }</div>
 	);
 }
 
