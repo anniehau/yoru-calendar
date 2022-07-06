@@ -26,9 +26,9 @@ const validateEmailFormat = (email) => {
 	const beforeDot = email.substring(email.indexOf('@'), email.indexOf('.'));
 	const afterDot = email.substring(email.indexOf('.'));
 	const format = [beforeAt, beforeDot, afterDot];
-	console.log(format);
 	return format[0].length > 0
 	&& format[1].includes('@') 
+	&& format[1].length > 1 
 	&& format[2].includes('.')
 	&& format[2].length > 1;
 };
@@ -37,7 +37,6 @@ const validateEmail = (email) => {
 	const emailIsFilled = email !== '';
 	const charactersAreValid = validateEmailCharacters(email);
 	const emailFormatIsValid = validateEmailFormat(email);
-
 	switch (true) {
 	case !emailIsFilled:
 		return { valid: false, message: 'Email must be filled.' };
