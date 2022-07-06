@@ -8,20 +8,8 @@ import { NotFound, Unauthorized, Conflict } from '../errors';
 export default class UserService {
 	constructor(private model = new UserModel()) {}
 
-	public getOne = async (email: string) => {
-		const result = await this.model.getOne(email);
-		if (!result) throw new NotFound('User not found!');
-		return format.user.body(result);
-	};
-
-	public getById = async (id: number) => {
-		const result = await this.model.getById(id);
-		if (!result) throw new NotFound('User not found!');
-		return format.user.body(result);
-	};
-
 	public login = async (login: LoginBody) => {
-		const user = await this.model.getOne(login.email);
+		const user = await this.model.getByEmail(login.email);
 		if (!user) throw new NotFound('User not found!');
 
 		const passwordIsValid = Md5.hashStr(login.password) === user.password;
@@ -32,7 +20,7 @@ export default class UserService {
 	};
 
 	public register = async (user: RegisterBody) => {
-		const userExists = await this.model.getOne(user.email);
+		const userExists = await this.model.getByEmail(user.email);
 		if (userExists) throw new Conflict('User already exists!');
 
 		const newUser = { ...user, password: Md5.hashStr(user.password) };

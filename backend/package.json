@@ -6,6 +6,7 @@
   "scripts": {
     "start": "nodemon ./src/index.ts",
     "start:docker": "npm run db:reset && nodemon ./src/index.ts",
+		"test": "mocha -r ts-node/register ./src/tests/**.ts -t 10000 --exit",
     "build": "npm run build:remove && npx tsc",
     "build:remove": "rm -rf ./build",
     "db:reset": "npx tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && npm run build:remove"
@@ -33,16 +34,19 @@
     "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
-		"@tsconfig/node14": "^1.0.3",
-		"@types/chai": "^4.3.1",
+    "@tsconfig/node14": "^1.0.3",
+    "@types/chai": "^4.3.1",
+    "@types/chai-http": "^4.2.0",
     "@types/mocha": "^9.1.1",
     "@types/sinon": "^10.0.12",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "eslint": "^8.18.0",
     "nodemon": "^2.0.18",
     "sinon": "^14.0.0",
+    "superagent": "^8.0.0",
     "typescript": "^4.7.4"
   }
 }

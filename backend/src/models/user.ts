@@ -2,7 +2,7 @@ import User from '../database/models/User';
 import { DbResult, IUser, RegisterBody } from '../interfaces/user';
 
 export default class UserModel {
-	public async getOne(email: string): Promise<DbResult> {
+	public async getByEmail(email: string): Promise<DbResult> {
 		const result = await User.findOne({ where: { email } });
 		return result;
 	}
