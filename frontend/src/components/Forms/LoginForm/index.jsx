@@ -19,11 +19,8 @@ function LoginForm() {
 	// Disables LoginButton if form values are invalid
 	const validateForm = () => {
 		const { valid, message } = validate.login.form(form);
-		if (!valid) {
-			setError(message);
-			return false;
-		}
-		setError('');
+		setError(message);
+		if (!valid) return false;
 		return true;
 	};
   

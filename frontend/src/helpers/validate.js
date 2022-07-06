@@ -14,7 +14,7 @@ const login = {
 		case (!passwordIsValid):
 			return { valid: false, message: 'Password must be at least 6 characters long!' };
 		default:
-			return { valid: true };
+			return { valid: true, message: '' };
 		}
 	}
 };

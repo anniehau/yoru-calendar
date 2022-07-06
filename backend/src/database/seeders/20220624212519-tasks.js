@@ -3,8 +3,8 @@ module.exports = {
 		await queryInterface.bulkInsert('tasks', [{
 			userId: 1,
 			title: 'Criar um app de calendário',
-			description: 'Preciso criar o app para apresentar em processos seletivos!',
-			datetime: new Date(),
+			description: 'Preciso criar o app para apresentar!',
+			datetime: new Date('2022-07-06T00:00:00Z'),
 			duration: '120m+',
 		}]);
 	},
